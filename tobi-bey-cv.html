@@ -497,6 +497,28 @@
       margin-bottom: 0;
     }
 
+    .proof-matrix--hero-followup,
+    .proof-matrix--lower {
+      --proof-image-row: 1.43fr;
+      --proof-text-row: 0.59fr;
+      grid-template-rows: var(--proof-image-row) var(--proof-text-row);
+      overflow: visible;
+    }
+
+    .proof-matrix--hero-followup .proof-matrix__cell--img,
+    .proof-matrix--lower .proof-matrix__cell--img {
+      overflow: visible;
+      z-index: 1;
+    }
+
+    .proof-matrix--hero-followup .proof-matrix__cell--img img,
+    .proof-matrix--lower .proof-matrix__cell--img img {
+      height: 100%;
+      max-width: 100%;
+      max-height: 100%;
+      object-position: bottom center;
+    }
+
     .proof-grid:last-child { margin-bottom: 0; }
 
     .proof-slot {
@@ -809,19 +831,37 @@
       }
       .cv-page--evidence .proof-matrix--hero-followup {
         margin-top: 0;
-        height: 56mm;
-        --proof-image-row: 1.06fr;
-        --proof-text-row: 0.94fr;
+        height: 67mm;
+        --proof-image-row: 1.43fr;
+        --proof-text-row: 0.59fr;
+        gap: 1px 3px;
+        overflow: visible;
       }
       .cv-page--evidence .proof-matrix--lower {
-        margin-top: 10px;
-        margin-bottom: 4px;
-        height: 56mm;
-        --proof-image-row: 1.04fr;
-        --proof-text-row: 0.96fr;
+        margin-top: 2px;
+        margin-bottom: 0;
+        height: 67mm;
+        --proof-image-row: 1.43fr;
+        --proof-text-row: 0.59fr;
+        gap: 1px 3px;
+        overflow: visible;
+      }
+      .cv-page--evidence .proof-matrix--hero-followup .proof-matrix__cell--img,
+      .cv-page--evidence .proof-matrix--lower .proof-matrix__cell--img {
+        overflow: visible;
+      }
+      .cv-page--evidence .proof-matrix--hero-followup .proof-matrix__cell--img img,
+      .cv-page--evidence .proof-matrix--lower .proof-matrix__cell--img img {
+        height: 100%;
+        max-width: 100%;
+        max-height: 100%;
       }
       .cv-page--evidence .proof-matrix__cell {
         overflow: hidden;
+      }
+      .cv-page--evidence .proof-matrix--hero-followup .proof-matrix__cell--img,
+      .cv-page--evidence .proof-matrix--lower .proof-matrix__cell--img {
+        overflow: visible;
       }
       .cv-page--evidence .proof-matrix__cell--img {
         padding: 0 1px;
@@ -869,7 +909,7 @@
       .cv-page--evidence .proof-matrix .proof-slot__points li { font-size: 7.3pt; line-height: 1.28; margin-bottom: 0; }
       .cv-page--evidence .proof-matrix .proof-slot__link { font-size: 6.6pt; }
       .cv-page--evidence .proof-matrix__cell--text .proof-slot__link { margin-top: 4px; }
-      .cv-page--evidence .proof-closer { margin-top: 20px; padding-top: 6px; }
+      .cv-page--evidence .proof-closer { margin-top: 10px; padding-top: 4px; }
       .cv-page--evidence .proof-closer .cv-section__title { margin-bottom: 3px; font-size: 7.6pt; }
       .cv-page--evidence .proof-closer__text { font-size: 7.1pt; line-height: 1.34; }
       .cv__aside, .proof-card, .proof-slot, .proof-cluster {
@@ -1165,10 +1205,10 @@
             <img src="assets/zappbout.png" alt="Zapp Boutique — luxury category grid" />
           </div>
           <div class="proof-matrix__cell proof-matrix__cell--img">
-            <img src="assets/trakstar2.png" alt="TrakStar Music — library" />
+            <img src="assets/zapp-checkout.png" alt="Zapp — order checkout" />
           </div>
           <div class="proof-matrix__cell proof-matrix__cell--img">
-            <img src="assets/trakstar3.png" alt="TrakStar Music — now playing" />
+            <img src="assets/te-progress.png" alt="Train Effective — progress tracker" />
           </div>
           <div class="proof-matrix__cell proof-matrix__cell--img">
             <img src="assets/te-paywall.png" alt="Train Effective — subscription paywall" />
@@ -1216,16 +1256,16 @@
           <img src="assets/trakstar3.png" alt="TrakStar Music — now playing" />
         </div>
         <div class="proof-matrix__cell proof-matrix__cell--img">
-          <img src="assets/ocava-2.png" alt="Ocava — saved articles" />
-        </div>
-        <div class="proof-matrix__cell proof-matrix__cell--img">
           <img src="assets/ocava-1.png" alt="Ocava — Sign in with Apple" />
         </div>
         <div class="proof-matrix__cell proof-matrix__cell--img">
-          <img src="assets/xcw-ecommerce-1.png" alt="E-commerce — discover" />
+          <img src="assets/ocava-2.png" alt="Ocava — saved articles" />
         </div>
         <div class="proof-matrix__cell proof-matrix__cell--img">
-          <img src="assets/xcw-ecommerce-2.png" alt="E-commerce — product detail" />
+          <img src="assets/habit-1.png" alt="Habit Tracker — new habit" />
+        </div>
+        <div class="proof-matrix__cell proof-matrix__cell--img">
+          <img src="assets/habit-2.png" alt="Habit Tracker — premium stats" />
         </div>
 
         <div class="proof-matrix__cell proof-matrix__cell--text proof-matrix__cell--span2 proof-matrix__cell--divider-right">
@@ -1254,12 +1294,12 @@
 
         <div class="proof-matrix__cell proof-matrix__cell--text proof-matrix__cell--span2">
           <div class="proof-slot__head">
-            <h3 class="proof-slot__name">E-commerce</h3>
+            <h3 class="proof-slot__name">Habit Tracker</h3>
             <span class="proof-slot__tag">XC Wizard</span>
           </div>
           <ul class="proof-slot__points">
-            <li>Shopping cart, checkout, and orders</li>
-            <li>Full native storefront from brief to build</li>
+            <li>Daily habits with reminders and progress rings</li>
+            <li>StoreKit 2 premium · stats &amp; insights paywall</li>
           </ul>
           <a class="proof-slot__link" href="https://xcwizard.com">xcwizard.com</a>
         </div>
