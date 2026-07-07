@@ -717,6 +717,10 @@
       align-self: center;
     }
 
+    .proof-matrix__cell--trakstar .proof-slot__head {
+      margin-top: 3px;
+    }
+
     .proof-card__link {
       display: inline-block;
     }
@@ -762,9 +766,11 @@
         margin-bottom: 10px;
         padding-bottom: 8px;
       }
-      .cv-section { margin-bottom: 7px; }
+      .cv-section { margin-bottom: 6px; }
       .cv-stack__intro { display: none; }
-      .cv-role { margin-bottom: 5px; }
+      .cv-stack__grid { gap: 3px 4px; margin-bottom: 2px; }
+      .cv-stack__badge img { height: 18px; }
+      .cv-role { margin-bottom: 4px; }
       .cv-role__list li {
         margin-bottom: 0.7px;
         font-size: 9pt;
@@ -914,7 +920,11 @@
         padding-right: 6px;
       }
       .cv-page--evidence .proof-matrix .proof-slot__head { margin-bottom: 1px; }
+      .cv-page--evidence .proof-matrix--lower .proof-matrix__cell--trakstar .proof-slot__head {
+        margin-top: 2px;
+      }
       .cv-page--evidence .proof-matrix .proof-slot__name { font-size: 8.4pt; }
+      .cv-page--evidence .proof-matrix .proof-slot__name--compact { font-size: 7.6pt; line-height: 1.15; }
       .cv-page--evidence .proof-matrix .proof-slot__tag { font-size: 6.1pt; }
       .cv-page--evidence .proof-matrix .proof-slot__points { margin-bottom: 1px; padding-left: 0; }
       .cv-page--evidence .proof-matrix .proof-slot__points li { font-size: 7.3pt; line-height: 1.28; margin-bottom: 0; }
@@ -970,28 +980,28 @@
 
             <article class="cv-role">
               <div class="cv-role__head">
-                <h3 class="cv-role__title">Senior Software Engineer <span class="cv-role__focus">· Xcode · Cloudflare · Apple Developer</span></h3>
+                <h3 class="cv-role__title">Senior Software Engineer <span class="cv-role__focus">· Xcode · Apple Developer · Cloudflare · Agents</span></h3>
                 <time class="cv-role__date">Apr 2024 – Present</time>
               </div>
               <p class="cv-role__org">App Next Day · Remote</p>
               <ul class="cv-role__list">
-                <li>Built a macOS cloud platform focused on rapid native iOS app delivery — from customer brief to shipped Xcode project.</li>
-                <li>Built <strong>XC Wizard</strong>: production macOS/iOS platform in Swift, TypeScript, and Node.js (SwiftUI, Next.js, Cloudflare Workers + PostgreSQL).</li>
-                <li>Shipped Sign in with Apple, StoreKit 2 IAP, APNs push, real-time WebSockets, and App Store Connect automation.</li>
+                <li>Built an <strong>iOS software factory</strong> — brief to shipped Xcode in up to 24h, including advanced integrations.</li>
+                <li>Built <strong>XC Wizard</strong> in Swift, TypeScript, and Node.js: macOS SwiftUI client, agent pipeline, per-app cloud backends.</li>
+                <li>Full <strong>Apple ecosystem</strong>: SwiftUI, SIWA, StoreKit 2, Apple Pay, APNs, ASC automation, certificates, code signing.</li>
+                <li><strong>Cloudflare</strong> per app — Workers, Durable Objects, R2, Neon/PostgreSQL.</li>
               </ul>
             </article>
 
             <article class="cv-role">
               <div class="cv-role__head">
-                <h3 class="cv-role__title">Software Engineer <span class="cv-role__focus">· React Native · GraphQL · App Store Connect</span></h3>
+                <h3 class="cv-role__title">Software Engineer <span class="cv-role__focus">· React Native · GraphQL · Citrus Ads</span></h3>
                 <time class="cv-role__date">May 2023 – Apr 2024</time>
               </div>
               <p class="cv-role__org">Zapp · London</p>
               <ul class="cv-role__list">
-                <li>Led architectural discussions around mobile infrastructure and code review for consistency across the codebase.</li>
-                <li>Led a mid-size remote team to implement an entirely new design standard.</li>
-                <li>Translated business requirements into development roadmaps and timelines.</li>
-                <li>Built CI/CD pipelines and testing frameworks with CircleCI.</li>
+                <li>Owned end-to-end <strong>Citrus Ads</strong> — sponsored placements and banners; partnered with ops and Citrus's dev team; delivered solo.</li>
+                <li>Built impressions and engagement tracking for sponsored ad analytics.</li>
+                <li>Daily <strong>GraphQL</strong> architecture with backend as fulfilment scaled; trusted engineer owning large codebase areas early.</li>
               </ul>
             </article>
 
@@ -1002,10 +1012,9 @@
               </div>
               <p class="cv-role__org">Train Effective · London</p>
               <ul class="cv-role__list">
-                <li>Complete mobile app redesign — built a <strong>component library</strong> in React Native and NPM while keeping legacy designs in sync.</li>
-                <li>Analytics dashboard: React/Bootstrap front-end, Node.js back-end.</li>
-                <li>Maintained legacy mobile app in React Native and Node.js.</li>
-                <li>Integrated Firebase, ElasticSearch, Algolia, Stripe, Mailchimp, and SAML.</li>
+                <li>Mobile app redesign — React Native <strong>component library</strong> in Storybook for design–dev alignment.</li>
+                <li>Integrated <strong>Amplitude</strong> for product analytics — events, funnels, and feature instrumentation.</li>
+                <li>Trusted mobile team member; led developers across Tbilisi, Manila, Australia, and Russia.</li>
               </ul>
             </article>
 
@@ -1022,13 +1031,13 @@
 
             <article class="cv-role">
               <div class="cv-role__head">
-                <h3 class="cv-role__title">Spring Technology Analyst <span class="cv-role__focus">· Artificial Intelligence</span></h3>
+                <h3 class="cv-role__title">Spring Technology Analyst <span class="cv-role__focus">· Artificial Intelligence · Cloud Computing</span></h3>
                 <time class="cv-role__date">Aug 2018 – Sep 2018</time>
               </div>
               <p class="cv-role__org">Morgan Stanley · London</p>
               <ul class="cv-role__list">
                 <li>Designed a trade-recommendation system for B2B clients in a collaborative team setting.</li>
-                <li>Applied NLP and AI techniques to generate trade ideas from market data.</li>
+                <li>Programme on cloud computing and AI including NLP — first exposure to natural language processing.</li>
               </ul>
             </article>
           </section>
@@ -1065,7 +1074,7 @@
                   <h3 class="cv-extra__title">Indie App Builder</h3>
                   <span class="cv-extra__date">Ongoing</span>
                 </div>
-                <p class="cv-extra__desc">Solo <strong>TrakStar Music</strong> — React Native, design, App Store release.</p>
+                <p class="cv-extra__desc">Solo <strong>TrakStar Music</strong> — React Native DSP via Spotify ISRC → YouTube bridge.</p>
               </article>
 
               <article class="cv-extra__item">
@@ -1110,7 +1119,6 @@
             <p class="cv-contact__item"><a href="tel:+447494214773">+44 7494 214 773</a></p>
             <p class="cv-contact__item"><a href="mailto:tshbey@hotmail.com">tshbey@hotmail.com</a></p>
             <p class="cv-contact__item"><a href="tobi-bey-cv.pdf">Download PDF</a></p>
-            <p class="cv-contact__item"><a href="https://uk.linkedin.com/in/tobi-shitta-bey-4a9402102">linkedin.com/in/tobi-shitta-bey</a></p>
             <p class="cv-contact__item"><a href="https://xcwizard.com">xcwizard.com</a></p>
           </div>
 
@@ -1127,7 +1135,7 @@
             </div>
             <div class="cv-skill">
               <span class="cv-skill__label">Native Depth</span>
-              <span class="cv-skill__value">Swift native modules, App Clips, Widgets, APNs, Sign in with Apple, StoreKit, code signing</span>
+              <span class="cv-skill__value">Swift native modules, App Clips, Widgets, APNs, Sign in with Apple, StoreKit, certificates, code signing</span>
             </div>
           </div>
 
@@ -1154,10 +1162,13 @@
           <div class="cv-aside-block">
             <h2 class="cv-section__title">Highlights</h2>
             <div class="cv-skill">
-              <span class="cv-skill__value">• 3 React Native apps live on the App Store</span>
+              <span class="cv-skill__value">• Apple ecosystem expert — SwiftUI, StoreKit 2, SIWA, APNs, ASC</span>
             </div>
             <div class="cv-skill">
-              <span class="cv-skill__value">• Built &amp; launched a full mobile product platform solo</span>
+              <span class="cv-skill__value">• 1,500+ advanced Xcode projects built through XC Wizard</span>
+            </div>
+            <div class="cv-skill">
+              <span class="cv-skill__value">• 3 React Native apps live on the App Store</span>
             </div>
             <div class="cv-skill">
               <span class="cv-skill__value">• Component library powering a full app redesign</span>
@@ -1277,14 +1288,14 @@
           <img src="assets/habit-2.png" alt="Habit Tracker — premium stats" />
         </div>
 
-        <div class="proof-matrix__cell proof-matrix__cell--text proof-matrix__cell--span2 proof-matrix__cell--divider-right">
+        <div class="proof-matrix__cell proof-matrix__cell--text proof-matrix__cell--span2 proof-matrix__cell--divider-right proof-matrix__cell--trakstar">
           <div class="proof-slot__head">
-            <h3 class="proof-slot__name">TrakStar Music</h3>
-            <span class="proof-slot__tag">React Native</span>
+            <h3 class="proof-slot__name proof-slot__name--compact">TrakStar — Alternative Music Streaming Platform</h3>
+            <span class="proof-slot__tag">100M songs · React Native</span>
           </div>
           <ul class="proof-slot__points">
-            <li>Solo build · Spotify + Apple Music APIs</li>
-            <li>Now playing, queue, and demo release</li>
+            <li>Maps ISRC to YouTube for ad-free playback</li>
+            <li>£80/month running cost</li>
           </ul>
           <a class="proof-slot__link" href="https://drive.google.com/file/d/1Zxq6hOuU8FnzSexbLM2VKcS9zozZ-Zqx/view?usp=drive_link">Demo ↗</a>
         </div>
