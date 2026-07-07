@@ -288,11 +288,31 @@
       padding: 0 0.15em;
     }
 
-    /* ─── Extracurriculars (full-width below grid) ───────── */
+    /* ─── Extracurriculars ───────────────────────────────── */
     .cv-extra {
       margin-top: var(--space-md);
       padding-top: var(--space-sm);
       border-top: 1px solid var(--g200);
+    }
+
+    .cv-extra--inline {
+      margin-top: 10px;
+      padding-top: 6px;
+    }
+
+    .cv-extra--inline .cv-extra__grid {
+      grid-template-columns: 1fr;
+      gap: 6px;
+    }
+
+    .cv-extra--continuation {
+      margin-top: var(--space-md);
+      padding-top: 0;
+      border-top: none;
+    }
+
+    .cv-extra--continuation .cv-extra__grid {
+      grid-template-columns: repeat(3, 1fr);
     }
 
     .cv-extra__grid {
@@ -532,12 +552,13 @@
     }
 
     .proof-matrix__cell--text {
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-start;
-      padding: 6px 7px 7px;
+      display: grid;
+      grid-template-rows: auto 1fr auto;
+      align-content: stretch;
+      padding: 8px 9px 9px;
       background: var(--g100);
       border-radius: 4px;
+      height: 100%;
     }
 
     .proof-matrix__cell--span2 {
@@ -691,14 +712,14 @@
 
     .proof-card__name,
     .proof-slot__name {
-      font-size: 8pt;
+      font-size: 9pt;
       font-weight: 600;
       color: var(--g900);
     }
 
     .proof-card__tag,
     .proof-slot__tag {
-      font-size: 5.5pt;
+      font-size: 6.1pt;
       font-weight: 600;
       letter-spacing: 0.1em;
       text-transform: uppercase;
@@ -712,12 +733,17 @@
       margin-bottom: 3px;
     }
 
+    .proof-matrix__cell--text .proof-slot__points {
+      margin-bottom: 0;
+      align-self: start;
+    }
+
     .proof-card__points li,
     .proof-slot__points li {
-      font-size: 7pt;
+      font-size: 7.8pt;
       color: var(--g600);
       margin-bottom: 1px;
-      line-height: 1.3;
+      line-height: 1.34;
     }
 
     .proof-card__points li::marker,
@@ -725,10 +751,14 @@
 
     .proof-card__link,
     .proof-slot__link {
-      font-size: 6.5pt;
+      font-size: 7pt;
       color: var(--g400);
       text-decoration: none;
-      border-bottom: 1px solid var(--g200);
+    }
+
+    .proof-matrix__cell--text .proof-slot__link {
+      margin-top: 6px;
+      align-self: start;
     }
 
     /* Platform delivery + closing */
@@ -758,28 +788,28 @@
 
     .platform-strip__group strong {
       display: block;
-      font-size: 6.5pt;
+      font-size: 7pt;
       font-weight: 600;
       letter-spacing: 0.08em;
       text-transform: uppercase;
       color: var(--g400);
-      margin-bottom: 3px;
+      margin-bottom: 4px;
     }
 
     .platform-strip__chips {
       display: flex;
       flex-wrap: wrap;
-      gap: 3px;
+      gap: 4px;
     }
 
     .platform-chip {
-      font-size: 6.5pt;
+      font-size: 7.25pt;
       font-weight: 500;
       color: var(--g800);
       background: var(--g100);
       border: 1px solid var(--g200);
-      padding: 1px 5px;
-      border-radius: 2px;
+      padding: 2px 7px;
+      border-radius: 3px;
       white-space: nowrap;
     }
 
@@ -842,6 +872,16 @@
         break-inside: avoid;
         page-break-inside: avoid;
       }
+      .cv-extra--inline {
+        margin-top: 5px;
+        padding-top: 3px;
+      }
+      .cv-extra--inline .cv-extra__grid { gap: 3px; }
+      .cv-extra--continuation {
+        margin-top: 4px;
+        padding-top: 0;
+        border-top: none;
+      }
       .cv-extra .cv-section__title { margin-bottom: 4px; }
       .cv-extra__grid { gap: 3px 10px; }
       .cv-extra__head { margin-bottom: 1px; }
@@ -856,10 +896,10 @@
       .cv-page--evidence .macbook-mockup__lid { width: 80%; height: auto; aspect-ratio: 1922 / 1080; }
       .cv-page--evidence .macbook-mockup__base { width: 90%; height: 4px; }
       .cv-page--evidence .proof-card__head { margin-bottom: 1px; }
-      .cv-page--evidence .proof-card__name { font-size: 7.5pt; }
+      .cv-page--evidence .proof-card__name { font-size: 8pt; }
       .cv-page--evidence .proof-card__points { margin-bottom: 1px; }
-      .cv-page--evidence .proof-card__points li { font-size: 6pt; line-height: 1.2; margin-bottom: 0; }
-      .cv-page--evidence .proof-card__link { font-size: 6pt; }
+      .cv-page--evidence .proof-card__points li { font-size: 6.5pt; line-height: 1.24; margin-bottom: 0; }
+      .cv-page--evidence .proof-card__link { font-size: 6.2pt; }
       .cv-page--evidence .proof-matrix {
         height: 64mm;
         gap: 2px 2px;
@@ -868,15 +908,16 @@
       .cv-page--evidence .proof-matrix__cell--img { padding: 0 1px; }
       .cv-page--evidence .proof-matrix__cell--img img { filter: none; }
       .cv-page--evidence .proof-matrix__cell--text {
-        padding: 3px 4px 4px;
+        padding: 4px 5px 5px;
         border-radius: 3px;
       }
       .cv-page--evidence .proof-matrix .proof-slot__head { margin-bottom: 1px; }
-      .cv-page--evidence .proof-matrix .proof-slot__name { font-size: 6.5pt; }
-      .cv-page--evidence .proof-matrix .proof-slot__tag { font-size: 5pt; }
+      .cv-page--evidence .proof-matrix .proof-slot__name { font-size: 7.2pt; }
+      .cv-page--evidence .proof-matrix .proof-slot__tag { font-size: 5.4pt; }
       .cv-page--evidence .proof-matrix .proof-slot__points { margin-bottom: 1px; padding-left: 9px; }
-      .cv-page--evidence .proof-matrix .proof-slot__points li { font-size: 6pt; line-height: 1.18; margin-bottom: 0; }
-      .cv-page--evidence .proof-matrix .proof-slot__link { font-size: 5.5pt; }
+      .cv-page--evidence .proof-matrix .proof-slot__points li { font-size: 6.5pt; line-height: 1.22; margin-bottom: 0; }
+      .cv-page--evidence .proof-matrix .proof-slot__link { font-size: 6pt; }
+      .cv-page--evidence .proof-matrix__cell--text .proof-slot__link { margin-top: 4px; }
       .cv-page--evidence .platform-strip {
         margin-top: 0;
         margin-bottom: 5px;
@@ -884,10 +925,10 @@
       }
       .cv-page--evidence .platform-strip .cv-section__title { margin-bottom: 3px; font-size: 7pt; }
       .cv-page--evidence .platform-strip__intro { display: none; }
-      .cv-page--evidence .platform-strip__group strong { margin-bottom: 1px; font-size: 5.5pt; }
+      .cv-page--evidence .platform-strip__group strong { margin-bottom: 2px; font-size: 6pt; }
       .cv-page--evidence .platform-strip__groups { gap: 1px 6px; }
-      .cv-page--evidence .platform-strip__chips { gap: 2px; }
-      .cv-page--evidence .platform-chip { font-size: 5pt; padding: 0 2px; }
+      .cv-page--evidence .platform-strip__chips { gap: 3px; }
+      .cv-page--evidence .platform-chip { font-size: 5.6pt; padding: 1px 4px; }
       .cv-page--evidence .proof-closer { margin-top: 5px; padding-top: 4px; }
       .cv-page--evidence .proof-closer .cv-section__title { margin-bottom: 3px; font-size: 7pt; }
       .cv-page--evidence .proof-closer__text { font-size: 6pt; line-height: 1.28; }
@@ -953,7 +994,7 @@
                 <h3 class="cv-role__title">Senior Software Engineer</h3>
                 <time class="cv-role__date">May 2023 – Apr 2024</time>
               </div>
-              <p class="cv-role__org">Zapp. · London</p>
+              <p class="cv-role__org">Zapp · London</p>
               <ul class="cv-role__list">
                 <li>Led architectural discussions around mobile infrastructure and code review for consistency across the codebase.</li>
                 <li>Led a mid-size remote team to implement an entirely new design standard.</li>
@@ -1003,15 +1044,37 @@
           <section class="cv-section">
             <h2 class="cv-section__title">Education</h2>
             <div class="cv-edu">
-              <p class="cv-edu__degree">BSc Engineering (2:1)</p>
+              <p class="cv-edu__degree">Higher Education</p>
+              <p class="cv-edu__subjects">BSc Engineering <span class="cv-edu__sep">-</span> 2:1</p>
               <p class="cv-edu__school">University of Warwick · 2017 – 2020</p>
               <p class="cv-edu__detail">First-year performance: First Class</p>
             </div>
             <div class="cv-edu">
               <p class="cv-edu__degree">A Levels</p>
-              <p class="cv-edu__subjects">Mathematics (A) <span class="cv-edu__sep">·</span> Physics (A) <span class="cv-edu__sep">·</span> Philosophy (A)</p>
+              <p class="cv-edu__subjects">Mathematics <span class="cv-edu__sep">-</span> A <span class="cv-edu__sep">·</span> Physics <span class="cv-edu__sep">-</span> A <span class="cv-edu__sep">·</span> Philosophy <span class="cv-edu__sep">-</span> A</p>
               <p class="cv-edu__school">Sharnbrook Upper School · 2015 – 2017</p>
               <p class="cv-edu__detail">Philosophy performance: 194/200 UMS</p>
+            </div>
+          </section>
+
+          <section class="cv-section cv-extra cv-extra--inline" aria-label="Extracurriculars">
+            <h2 class="cv-section__title">Extracurriculars</h2>
+            <div class="cv-extra__grid">
+              <article class="cv-extra__item">
+                <div class="cv-extra__head">
+                  <h3 class="cv-extra__title">Apple Developer Community</h3>
+                  <span class="cv-extra__date">2019 – Present</span>
+                </div>
+                <p class="cv-extra__desc">WWDC annually; early SwiftUI, StoreKit 2, and SIWA in production.</p>
+              </article>
+
+              <article class="cv-extra__item">
+                <div class="cv-extra__head">
+                  <h3 class="cv-extra__title">Indie App Builder</h3>
+                  <span class="cv-extra__date">Ongoing</span>
+                </div>
+                <p class="cv-extra__desc">Solo <strong>TrakStar Music</strong> — React Native, design, App Store release.</p>
+              </article>
             </div>
           </section>
         </main>
@@ -1082,17 +1145,8 @@
         </aside>
       </div>
 
-      <section class="cv-section cv-extra" aria-label="Extracurriculars">
-        <h2 class="cv-section__title">Extracurriculars</h2>
+      <section class="cv-section cv-extra cv-extra--continuation" aria-label="More extracurriculars">
         <div class="cv-extra__grid">
-
-          <article class="cv-extra__item">
-            <div class="cv-extra__head">
-              <h3 class="cv-extra__title">Apple Developer Community</h3>
-              <span class="cv-extra__date">2019 – Present</span>
-            </div>
-            <p class="cv-extra__desc">WWDC annually; early SwiftUI, StoreKit 2, and SIWA in production.</p>
-          </article>
 
           <article class="cv-extra__item">
             <div class="cv-extra__head">
@@ -1104,10 +1158,18 @@
 
           <article class="cv-extra__item">
             <div class="cv-extra__head">
-              <h3 class="cv-extra__title">Indie App Builder</h3>
+              <h3 class="cv-extra__title">Mobile Release Craft</h3>
               <span class="cv-extra__date">Ongoing</span>
             </div>
-            <p class="cv-extra__desc">Solo <strong>TrakStar Music</strong> — React Native, design, App Store release.</p>
+            <p class="cv-extra__desc">Personal focus on App Store submission, release ops, screenshots, and production polish.</p>
+          </article>
+
+          <article class="cv-extra__item">
+            <div class="cv-extra__head">
+              <h3 class="cv-extra__title">AI Product Experiments</h3>
+              <span class="cv-extra__date">Ongoing</span>
+            </div>
+            <p class="cv-extra__desc">Prototyping automation and AI-driven product ideas beyond day-job app work.</p>
           </article>
 
         </div>
@@ -1165,6 +1227,7 @@
             <ul class="proof-slot__points">
               <li>Solo build · Spotify + Apple Music APIs</li>
               <li>Now playing, queue, App Store release</li>
+              <li>Shipped end-to-end: product, design, and release</li>
             </ul>
             <a class="proof-slot__link" href="https://apps.apple.com/gb/app/trakstar/id1636470089">App Store ↗</a>
           </div>
@@ -1200,6 +1263,7 @@
             <ul class="proof-slot__points">
               <li>Mobile infra + redesign</li>
               <li>CI/CD, release systems</li>
+              <li>Improved shipping speed across a high-frequency commerce app</li>
             </ul>
             <a class="proof-slot__link" href="https://www.zapp.com">zapp.com</a>
           </div>
@@ -1212,6 +1276,7 @@
             <ul class="proof-slot__points">
               <li>StoreKit 2 subscriptions</li>
               <li>In-app purchase flow</li>
+              <li>Owned billing UX and release-ready subscription plumbing</li>
             </ul>
             <a class="proof-slot__link" href="https://www.traineffective.com">traineffective.com</a>
           </div>
@@ -1280,6 +1345,8 @@
           </div>
           <ul class="proof-slot__points">
             <li>Mobile infra + redesign</li>
+            <li>Worked on fast, polished consumer ordering flows</li>
+            <li>Helped harden the app for frequent releases</li>
           </ul>
           <a class="proof-slot__link" href="https://www.zapp.com">zapp.com</a>
         </div>
@@ -1291,6 +1358,8 @@
           </div>
           <ul class="proof-slot__points">
             <li>CI/CD, release systems</li>
+            <li>Improved build, deploy, and QA reliability</li>
+            <li>Supported faster iteration across the mobile team</li>
           </ul>
           <a class="proof-slot__link" href="https://www.zapp.com">zapp.com</a>
         </div>
@@ -1302,6 +1371,8 @@
           </div>
           <ul class="proof-slot__points">
             <li>StoreKit 2 subscriptions</li>
+            <li>Implemented paywall logic and entitlement flows</li>
+            <li>Connected product UX to revenue-critical purchase states</li>
           </ul>
           <a class="proof-slot__link" href="https://www.traineffective.com">traineffective.com</a>
         </div>
@@ -1313,6 +1384,8 @@
           </div>
           <ul class="proof-slot__points">
             <li>In-app purchase flow</li>
+            <li>Handled sandbox testing and edge-case billing states</li>
+            <li>Shipped a cleaner path from intent to conversion</li>
           </ul>
           <a class="proof-slot__link" href="https://www.traineffective.com">traineffective.com</a>
         </div>
@@ -1324,6 +1397,8 @@
           </div>
           <ul class="proof-slot__points">
             <li>Solo build, App Store</li>
+            <li>Designed and shipped independently</li>
+            <li>Music discovery, playback, and release ops</li>
           </ul>
           <a class="proof-slot__link" href="https://apps.apple.com/gb/app/trakstar/id1636470089">App Store ↗</a>
         </div>
@@ -1335,6 +1410,8 @@
           </div>
           <ul class="proof-slot__points">
             <li>Now playing + queue</li>
+            <li>Built the listening experience and core playback UX</li>
+            <li>Owned the product from idea through App Store release</li>
           </ul>
           <a class="proof-slot__link" href="https://apps.apple.com/gb/app/trakstar/id1636470089">App Store ↗</a>
         </div>
