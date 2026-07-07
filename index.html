@@ -40,6 +40,9 @@
       --space-md: 12px;
       --space-lg: 16px;
       --space-xl: 20px;
+      --proof-card-bg: #f6f6f3;
+      --proof-card-border: #ecece7;
+      --proof-section-gap: 12px;
     }
 
     /* ─── Reset ──────────────────────────────────────────── */
@@ -286,8 +289,8 @@
     }
 
     .cv-extra--inline .cv-extra__grid {
-      grid-template-columns: 1fr;
-      gap: 6px;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 6px 10px;
     }
 
     .cv-extra--continuation {
@@ -297,7 +300,8 @@
     }
 
     .cv-extra--continuation .cv-extra__grid {
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) var(--col-aside);
+      gap: 8px 14px;
     }
 
     .cv-extra__grid {
@@ -397,97 +401,37 @@
 
     /* XC Wizard — full-width MacBook hero */
     .proof-hero {
-      margin-bottom: 14px;
+      display: grid;
+      grid-template-columns: 1.65fr 0.95fr;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: var(--proof-section-gap);
     }
 
     .proof-hero .proof-card__media {
+      order: 1;
       display: flex;
       align-items: center;
-      justify-content: center;
-      padding: 8px 8px 2px;
+      justify-content: flex-start;
+      padding: 0;
       background: transparent;
     }
 
     .proof-hero .proof-card__body {
-      padding: 8px 2px 0;
-    }
-
-    .macbook-mockup {
-      position: relative;
-      width: 100%;
-      display: flex;
-      justify-content: center;
-    }
-
-    .macbook-mockup__device {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      width: 100%;
-    }
-
-    .macbook-mockup__lid {
-      aspect-ratio: 1922 / 1080;
-      width: 80%;
-      height: auto;
-      flex-shrink: 0;
-      margin-inline: auto;
-      background: #1c1c1e;
-      border-radius: 6px 6px 0 0;
-      padding: 5px 5px 3px;
-      box-shadow:
-        0 0 0 1px #3a3a3c,
-        0 6px 18px rgba(0, 0, 0, 0.2);
-    }
-
-    .macbook-mockup__bezel {
-      position: relative;
-      width: 100%;
-      height: 100%;
-      border-radius: 3px;
-      overflow: hidden;
-      background: #111;
-    }
-
-    .macbook-mockup__camera-bar {
-      display: none;
-    }
-
-    .macbook-mockup__camera {
-      width: 2.5px;
-      height: 2.5px;
-      border-radius: 50%;
-      background: #2a2a2a;
-      box-shadow: 0 0 0 0.5px #444;
-    }
-
-    .macbook-mockup__base {
-      width: 90%;
-      height: 4px;
-      margin-top: -1px;
-      background: linear-gradient(180deg, #d4d4d8 0%, #a1a1aa 55%, #71717a 100%);
-      border-radius: 0 0 4px 4px;
-      box-shadow: 0 3px 6px rgba(0, 0, 0, 0.14);
-    }
-
-    .macbook-mockup__base::after {
-      content: "";
-      display: block;
-      width: 18%;
-      height: 1px;
-      margin: 0.5px auto 0;
-      background: #52525b;
-      border-radius: 1px;
+      order: 2;
+      padding: 12px 14px;
+      background: var(--proof-card-bg);
+      border: 1px solid var(--proof-card-border);
+      border-radius: 12px;
     }
 
     .proof-hero .proof-card__img {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-      object-position: top center;
       display: block;
+      width: 100%;
+      max-width: 540px;
+      height: auto;
+      object-fit: contain;
+      object-position: left center;
     }
 
     /* 4-column phone grid */
@@ -541,8 +485,9 @@
       grid-template-rows: auto 1fr auto;
       align-content: stretch;
       padding: 8px 9px 9px;
-      background: var(--g100);
-      border-radius: 4px;
+      background: var(--proof-card-bg);
+      border: 1px solid var(--proof-card-border);
+      border-radius: 8px;
       height: 100%;
     }
 
@@ -750,8 +695,8 @@
     .platform-strip {
       padding-top: 12px;
       border-top: 1px solid var(--g200);
-      margin-top: 4px;
-      margin-bottom: 16px;
+      margin-top: var(--proof-section-gap);
+      margin-bottom: var(--proof-section-gap);
     }
 
     .platform-strip .cv-section__title {
@@ -802,7 +747,7 @@
     .proof-closer {
       padding-top: 12px;
       border-top: 1px solid var(--g200);
-      margin-top: 16px;
+      margin-top: var(--proof-section-gap);
     }
 
     .proof-closer .cv-section__title {
@@ -861,11 +806,9 @@
         margin-top: 5px;
         padding-top: 3px;
       }
-      .cv-extra--inline .cv-extra__grid { gap: 3px; }
-      .cv-extra--continuation {
-        margin-top: 4px;
-        padding-top: 0;
-        border-top: none;
+      .cv-extra--inline .cv-extra__grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2px 8px;
       }
       .cv-extra .cv-section__title { margin-bottom: 4px; }
       .cv-extra__grid { gap: 3px 10px; }
@@ -873,28 +816,49 @@
       .cv-extra__title { font-size: 9pt; }
       .cv-extra__date { font-size: 7.5pt; }
       .cv-extra__desc { font-size: 7.3pt; line-height: 1.22; }
-      .cv-page--evidence .evidence__header { margin-bottom: 8px; padding-bottom: 4px; }
+      .cv-page--evidence .evidence__header { margin-bottom: 5px; padding-bottom: 3px; }
       .cv-page--evidence .evidence__title { font-size: 12pt; }
-      .cv-page--evidence .proof-hero { margin-bottom: 5px; }
-      .cv-page--evidence .proof-hero .proof-card__media { padding: 2px 4px 0; }
-      .cv-page--evidence .proof-hero .proof-card__body { padding: 3px 2px 0; }
-      .cv-page--evidence .macbook-mockup__lid { width: 80%; height: auto; aspect-ratio: 1922 / 1080; }
-      .cv-page--evidence .macbook-mockup__base { width: 90%; height: 4px; }
+      .cv-page--evidence .proof-hero {
+        grid-template-columns: 1.45fr 0.9fr;
+        gap: 8px;
+        margin-bottom: 0;
+      }
+      .cv-page--evidence .proof-hero .proof-card__media {
+        padding: 0;
+        max-height: none;
+      }
+      .cv-page--evidence .proof-hero .proof-card__body {
+        padding: 4px 6px 5px;
+        background: var(--proof-card-bg);
+        border: 1px solid var(--proof-card-border);
+        border-radius: 6px;
+      }
+      .cv-page--evidence .proof-hero .proof-card__img {
+        width: 100%;
+        max-width: none;
+        height: auto;
+        margin-inline: 0;
+      }
       .cv-page--evidence .proof-card__head { margin-bottom: 1px; }
-      .cv-page--evidence .proof-card__name { font-size: 8pt; }
+      .cv-page--evidence .proof-card__name { font-size: 7.5pt; }
       .cv-page--evidence .proof-card__points { margin-bottom: 1px; }
-      .cv-page--evidence .proof-card__points li { font-size: 6.5pt; line-height: 1.24; margin-bottom: 0; }
-      .cv-page--evidence .proof-card__link { font-size: 6.2pt; }
+      .cv-page--evidence .proof-card__points li { font-size: 6pt; line-height: 1.18; margin-bottom: 0; }
+      .cv-page--evidence .proof-card__link { font-size: 5.8pt; }
       .cv-page--evidence .proof-matrix {
-        height: 64mm;
+        height: 56.5mm;
         gap: 2px 2px;
-        margin-bottom: 4px;
+        margin-top: 0;
+        margin-bottom: 3px;
+      }
+      .cv-page--evidence .proof-matrix--hero-followup {
+        margin-top: -30px;
       }
       .cv-page--evidence .proof-matrix__cell--img { padding: 0 1px; }
       .cv-page--evidence .proof-matrix__cell--img img { filter: none; }
       .cv-page--evidence .proof-matrix__cell--text {
-        padding: 4px 5px 5px;
-        border-radius: 3px;
+        padding: 3px 4px 4px;
+        border: 1px solid var(--proof-card-border);
+        border-radius: 4px;
       }
       .cv-page--evidence .proof-matrix .proof-slot__head { margin-bottom: 1px; }
       .cv-page--evidence .proof-matrix .proof-slot__name { font-size: 7.2pt; }
@@ -904,9 +868,9 @@
       .cv-page--evidence .proof-matrix .proof-slot__link { font-size: 6pt; }
       .cv-page--evidence .proof-matrix__cell--text .proof-slot__link { margin-top: 4px; }
       .cv-page--evidence .platform-strip {
-        margin-top: 0;
-        margin-bottom: 5px;
-        padding-top: 4px;
+        margin-top: 14px;
+        margin-bottom: 3px;
+        padding-top: 5px;
       }
       .cv-page--evidence .platform-strip .cv-section__title { margin-bottom: 3px; font-size: 7pt; }
       .cv-page--evidence .platform-strip__intro { display: none; }
@@ -914,7 +878,7 @@
       .cv-page--evidence .platform-strip__groups { gap: 1px 6px; }
       .cv-page--evidence .platform-strip__chips { gap: 3px; }
       .cv-page--evidence .platform-chip { font-size: 5.6pt; padding: 1px 4px; }
-      .cv-page--evidence .proof-closer { margin-top: 5px; padding-top: 4px; }
+      .cv-page--evidence .proof-closer { margin-top: 14px; padding-top: 5px; }
       .cv-page--evidence .proof-closer .cv-section__title { margin-bottom: 3px; font-size: 7pt; }
       .cv-page--evidence .proof-closer__text { font-size: 6pt; line-height: 1.28; }
       .cv__aside, .proof-card, .proof-slot, .proof-cluster, .platform-chip {
@@ -1061,6 +1025,38 @@
                 </div>
                 <p class="cv-extra__desc">Solo <strong>TrakStar Music</strong> — React Native, design, App Store release.</p>
               </article>
+
+              <article class="cv-extra__item">
+                <div class="cv-extra__head">
+                  <h3 class="cv-extra__title">Warwick Engineering Society</h3>
+                  <span class="cv-extra__date">2017 – 2020</span>
+                </div>
+                <p class="cv-extra__desc">Hackathons, bridge-building comps, rapid prototyping nights.</p>
+              </article>
+
+              <article class="cv-extra__item">
+                <div class="cv-extra__head">
+                  <h3 class="cv-extra__title">Mobile Release Craft</h3>
+                  <span class="cv-extra__date">Ongoing</span>
+                </div>
+                <p class="cv-extra__desc">Personal focus on App Store submission, release ops, screenshots, and production polish.</p>
+              </article>
+
+              <article class="cv-extra__item">
+                <div class="cv-extra__head">
+                  <h3 class="cv-extra__title">AI Product Experiments</h3>
+                  <span class="cv-extra__date">Ongoing</span>
+                </div>
+                <p class="cv-extra__desc">Prototyping automation and AI-driven product ideas beyond day-job app work.</p>
+              </article>
+
+              <article class="cv-extra__item">
+                <div class="cv-extra__head">
+                  <h3 class="cv-extra__title">Open Source Exploration</h3>
+                  <span class="cv-extra__date">Ongoing</span>
+                </div>
+                <p class="cv-extra__desc">Testing new tooling, SDKs, and mobile workflows to stay sharp across the Apple ecosystem.</p>
+              </article>
             </div>
           </section>
         </main>
@@ -1130,36 +1126,6 @@
           </div>
         </aside>
       </div>
-
-      <section class="cv-section cv-extra cv-extra--continuation" aria-label="More extracurriculars">
-        <div class="cv-extra__grid">
-
-          <article class="cv-extra__item">
-            <div class="cv-extra__head">
-              <h3 class="cv-extra__title">Warwick Engineering Society</h3>
-              <span class="cv-extra__date">2017 – 2020</span>
-            </div>
-            <p class="cv-extra__desc">Hackathons, bridge-building comps, rapid prototyping nights.</p>
-          </article>
-
-          <article class="cv-extra__item">
-            <div class="cv-extra__head">
-              <h3 class="cv-extra__title">Mobile Release Craft</h3>
-              <span class="cv-extra__date">Ongoing</span>
-            </div>
-            <p class="cv-extra__desc">Personal focus on App Store submission, release ops, screenshots, and production polish.</p>
-          </article>
-
-          <article class="cv-extra__item">
-            <div class="cv-extra__head">
-              <h3 class="cv-extra__title">AI Product Experiments</h3>
-              <span class="cv-extra__date">Ongoing</span>
-            </div>
-            <p class="cv-extra__desc">Prototyping automation and AI-driven product ideas beyond day-job app work.</p>
-          </article>
-
-        </div>
-      </section>
     </div>
   </article>
 
@@ -1177,17 +1143,7 @@
         <!-- XC Wizard — full-width MacBook hero -->
         <article class="proof-card proof-hero" data-showcase="platform">
           <figure class="proof-card__media">
-            <div class="macbook-mockup" aria-hidden="true">
-              <div class="macbook-mockup__device">
-                <div class="macbook-mockup__lid">
-                  <div class="macbook-mockup__bezel">
-                    <div class="macbook-mockup__camera-bar"><span class="macbook-mockup__camera"></span></div>
-                    <img src="assets/xcwizard.png" alt="XC Wizard — Third-party APIs panel with live iPhone simulator" class="proof-card__img" />
-                  </div>
-                </div>
-                <div class="macbook-mockup__base"></div>
-              </div>
-            </div>
+            <img src="assets/xcwizard-front.png" alt="XC Wizard — iMac mockup with live iPhone simulator" class="proof-card__img" />
           </figure>
           <div class="proof-card__body">
             <div class="proof-card__head">
@@ -1197,13 +1153,19 @@
             <ul class="proof-card__points">
               <li>Native app factory — SwiftUI macOS, Node.js, per-app cloud backends</li>
               <li>SIWA, StoreKit 2, APNs, ASC automation, Stripe billing</li>
+              <li>Planner + task execution pipeline for turning prompts into shipped native app projects</li>
+              <li>Build history, QA loops, and iterative file-level app generation</li>
+              <li>Cloudflare Workers, Neon/Postgres, and per-app backend provisioning</li>
+              <li>Third-party API exploration, billing, and App Store submission workflow support</li>
+              <li>Realtime, storage, auth, notifications, and purchase capability scaffolding</li>
+              <li>Designed to take an app from brief to production-ready Xcode output</li>
             </ul>
             <a class="proof-card__link" href="https://xcwizard.com">xcwizard.com</a>
           </div>
         </article>
 
         <!-- 6×2 matrix: row 1 = TrakStar desc + images, row 2 = TrakStar images + descriptions -->
-        <div class="proof-matrix" aria-label="Shipped products">
+        <div class="proof-matrix proof-matrix--hero-followup" aria-label="Shipped products">
 
           <div class="proof-matrix__cell proof-matrix__cell--text">
             <div class="proof-slot__head">
@@ -1358,7 +1320,6 @@
           <ul class="proof-slot__points">
             <li>StoreKit 2 subscriptions</li>
             <li>Implemented paywall logic and entitlement flows</li>
-            <li>Connected product UX to revenue-critical purchase states</li>
           </ul>
           <a class="proof-slot__link" href="https://www.traineffective.com">traineffective.com</a>
         </div>
@@ -1371,7 +1332,6 @@
           <ul class="proof-slot__points">
             <li>In-app purchase flow</li>
             <li>Handled sandbox testing and edge-case billing states</li>
-            <li>Shipped a cleaner path from intent to conversion</li>
           </ul>
           <a class="proof-slot__link" href="https://www.traineffective.com">traineffective.com</a>
         </div>
@@ -1384,7 +1344,6 @@
           <ul class="proof-slot__points">
             <li>Solo build, App Store</li>
             <li>Designed and shipped independently</li>
-            <li>Music discovery, playback, and release ops</li>
           </ul>
           <a class="proof-slot__link" href="https://apps.apple.com/gb/app/trakstar/id1636470089">App Store ↗</a>
         </div>
@@ -1397,7 +1356,6 @@
           <ul class="proof-slot__points">
             <li>Now playing + queue</li>
             <li>Built the listening experience and core playback UX</li>
-            <li>Owned the product from idea through App Store release</li>
           </ul>
           <a class="proof-slot__link" href="https://apps.apple.com/gb/app/trakstar/id1636470089">App Store ↗</a>
         </div>
