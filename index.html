@@ -489,6 +489,10 @@
       grid-column: span 2;
     }
 
+    .proof-matrix__cell--span3 {
+      grid-column: span 3;
+    }
+
     .proof-matrix:last-of-type {
       margin-bottom: 0;
     }
@@ -690,58 +694,6 @@
       display: inline-block;
     }
 
-    /* Platform delivery + closing */
-    .platform-strip {
-      padding-top: 12px;
-      border-top: 1px solid var(--g200);
-      margin-top: var(--proof-section-gap);
-      margin-bottom: var(--proof-section-gap);
-    }
-
-    .platform-strip .cv-section__title {
-      margin-bottom: 6px;
-    }
-
-    .platform-strip__intro {
-      font-size: 7pt;
-      color: var(--g600);
-      margin-bottom: 5px;
-      line-height: 1.3;
-    }
-
-    .platform-strip__groups {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 6px 10px;
-    }
-
-    .platform-strip__group strong {
-      display: block;
-      font-size: 7pt;
-      font-weight: 600;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--g400);
-      margin-bottom: 4px;
-    }
-
-    .platform-strip__chips {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 4px;
-    }
-
-    .platform-chip {
-      font-size: 7.25pt;
-      font-weight: 500;
-      color: var(--g800);
-      background: var(--g100);
-      border: 1px solid var(--g200);
-      padding: 2px 7px;
-      border-radius: 3px;
-      white-space: nowrap;
-    }
-
     /* Closing statement — page 2 sign-off */
     .proof-closer {
       padding-top: 12px;
@@ -846,25 +798,59 @@
       .cv-page--evidence .proof-card__points li { font-size: 7.1pt; line-height: 1.28; margin-bottom: 0; }
       .cv-page--evidence .proof-card__link { font-size: 6.6pt; }
       .cv-page--evidence .proof-matrix {
+        --proof-image-row: 1.22fr;
+        --proof-text-row: 0.78fr;
         height: 54mm;
-        gap: 2px 2px;
+        gap: 2px 3px;
         margin-top: 0;
-        margin-bottom: 3px;
+        margin-bottom: 2px;
+        overflow: hidden;
+        grid-template-rows: var(--proof-image-row) var(--proof-text-row);
       }
       .cv-page--evidence .proof-matrix--hero-followup {
-        margin-top: -20px;
+        margin-top: 0;
+        height: 56mm;
+        --proof-image-row: 1.06fr;
+        --proof-text-row: 0.94fr;
       }
       .cv-page--evidence .proof-matrix--lower {
-        margin-top: 18px;
+        margin-top: 10px;
+        margin-bottom: 4px;
+        height: 56mm;
+        --proof-image-row: 1.04fr;
+        --proof-text-row: 0.96fr;
       }
-      .cv-page--evidence .proof-matrix--hero-followup > .proof-matrix__cell--text:first-child {
-        padding-top: 10px;
-        align-content: start;
+      .cv-page--evidence .proof-matrix__cell {
+        overflow: hidden;
       }
-      .cv-page--evidence .proof-matrix__cell--img { padding: 0 1px; }
-      .cv-page--evidence .proof-matrix__cell--img img { filter: none; }
+      .cv-page--evidence .proof-matrix__cell--img {
+        padding: 0 1px;
+      }
+      .cv-page--evidence .proof-matrix__cell--img img {
+        filter: none;
+        height: 100%;
+        max-height: 100%;
+        max-width: 100%;
+      }
       .cv-page--evidence .proof-matrix__cell--text {
-        padding: 2px 3px 3px;
+        padding: 2px 5px 3px;
+        align-content: start;
+        overflow: hidden;
+      }
+      .cv-page--evidence .proof-matrix--hero-followup .proof-matrix__cell--text,
+      .cv-page--evidence .proof-matrix--lower .proof-matrix__cell--text {
+        grid-template-rows: auto auto auto;
+        align-content: start;
+        padding: 2px 4px 5px;
+      }
+      .cv-page--evidence .proof-matrix--hero-followup .proof-slot__points li,
+      .cv-page--evidence .proof-matrix--lower .proof-slot__points li {
+        font-size: 7pt;
+        line-height: 1.2;
+      }
+      .cv-page--evidence .proof-matrix--hero-followup .proof-slot__link,
+      .cv-page--evidence .proof-matrix--lower .proof-slot__link {
+        margin-top: 2px;
       }
       .cv-page--evidence .proof-matrix__cell--divider-both {
         border-left: 1px solid #f3f3f3;
@@ -883,21 +869,10 @@
       .cv-page--evidence .proof-matrix .proof-slot__points li { font-size: 7.3pt; line-height: 1.28; margin-bottom: 0; }
       .cv-page--evidence .proof-matrix .proof-slot__link { font-size: 6.6pt; }
       .cv-page--evidence .proof-matrix__cell--text .proof-slot__link { margin-top: 4px; }
-      .cv-page--evidence .platform-strip {
-        margin-top: 10px;
-        margin-bottom: 3px;
-        padding-top: 4px;
-      }
-      .cv-page--evidence .platform-strip .cv-section__title { margin-bottom: 3px; font-size: 7.6pt; }
-      .cv-page--evidence .platform-strip__intro { display: none; }
-      .cv-page--evidence .platform-strip__group strong { margin-bottom: 2px; font-size: 6.9pt; }
-      .cv-page--evidence .platform-strip__groups { gap: 1px 6px; }
-      .cv-page--evidence .platform-strip__chips { gap: 3px; }
-      .cv-page--evidence .platform-chip { font-size: 6.3pt; padding: 1px 4px; }
-      .cv-page--evidence .proof-closer { margin-top: 10px; padding-top: 4px; }
+      .cv-page--evidence .proof-closer { margin-top: 20px; padding-top: 6px; }
       .cv-page--evidence .proof-closer .cv-section__title { margin-bottom: 3px; font-size: 7.6pt; }
       .cv-page--evidence .proof-closer__text { font-size: 7.1pt; line-height: 1.34; }
-      .cv__aside, .proof-card, .proof-slot, .proof-cluster, .platform-chip {
+      .cv__aside, .proof-card, .proof-slot, .proof-cluster {
         -webkit-print-color-adjust: exact;
         print-color-adjust: exact;
       }
@@ -1180,30 +1155,20 @@
           </div>
         </article>
 
-        <!-- 6×2 matrix: row 1 = TrakStar desc + images, row 2 = TrakStar images + descriptions -->
+        <!-- 6×2 matrix: row 1 = six images, row 2 = descriptions -->
         <div class="proof-matrix proof-matrix--hero-followup" aria-label="Shipped products">
 
-          <div class="proof-matrix__cell proof-matrix__cell--text">
-            <div class="proof-slot__head">
-              <h3 class="proof-slot__name">TrakStar Music</h3>
-              <span class="proof-slot__tag">React Native</span>
-            </div>
-            <ul class="proof-slot__points">
-              <li>Solo build · Spotify + Apple Music APIs</li>
-              <li>Now playing, queue, App Store release</li>
-              <li>Shipped end-to-end: product, design, and release</li>
-            </ul>
-            <a class="proof-slot__link" href="https://apps.apple.com/gb/app/trakstar/id1636470089">App Store ↗</a>
-          </div>
-
-          <div class="proof-matrix__cell proof-matrix__cell--img">
-            <img src="assets/trakstar-music.png" alt="TrakStar Music — playlist" />
-          </div>
           <div class="proof-matrix__cell proof-matrix__cell--img">
             <img src="assets/tobiisking.png" alt="Zapp — home and merchandising" />
           </div>
           <div class="proof-matrix__cell proof-matrix__cell--img">
             <img src="assets/zappbout.png" alt="Zapp Boutique — luxury category grid" />
+          </div>
+          <div class="proof-matrix__cell proof-matrix__cell--img">
+            <img src="assets/trakstar2.png" alt="TrakStar Music — library" />
+          </div>
+          <div class="proof-matrix__cell proof-matrix__cell--img">
+            <img src="assets/trakstar3.png" alt="TrakStar Music — now playing" />
           </div>
           <div class="proof-matrix__cell proof-matrix__cell--img">
             <img src="assets/te-paywall.png" alt="Train Effective — subscription paywall" />
@@ -1212,14 +1177,7 @@
             <img src="assets/tepaywalliap.png" alt="Train Effective — IAP sandbox" />
           </div>
 
-          <div class="proof-matrix__cell proof-matrix__cell--img">
-            <img src="assets/trakstar2.png" alt="TrakStar Music — library" />
-          </div>
-          <div class="proof-matrix__cell proof-matrix__cell--img">
-            <img src="assets/trakstar3.png" alt="TrakStar Music — now playing" />
-          </div>
-
-          <div class="proof-matrix__cell proof-matrix__cell--text proof-matrix__cell--span2 proof-matrix__cell--divider-both">
+          <div class="proof-matrix__cell proof-matrix__cell--text proof-matrix__cell--span3 proof-matrix__cell--divider-both">
             <div class="proof-slot__head">
               <h3 class="proof-slot__name">Zapp</h3>
               <span class="proof-slot__tag">Engineer</span>
@@ -1232,7 +1190,7 @@
             <a class="proof-slot__link" href="https://www.zapp.com">zapp.com</a>
           </div>
 
-          <div class="proof-matrix__cell proof-matrix__cell--text proof-matrix__cell--span2">
+          <div class="proof-matrix__cell proof-matrix__cell--text proof-matrix__cell--span3">
             <div class="proof-slot__head">
               <h3 class="proof-slot__name">Train Effective</h3>
               <span class="proof-slot__tag">React Native</span>
@@ -1247,37 +1205,6 @@
 
         </div>
 
-      </section>
-
-      <section class="platform-strip" aria-label="Platform delivery depth">
-        <h2 class="cv-section__title">Platform Delivery</h2>
-        <p class="platform-strip__intro">Beyond React Native — native modules, release systems, and store distribution I own end-to-end.</p>
-        <div class="platform-strip__groups">
-          <div class="platform-strip__group">
-            <strong>Apple</strong>
-            <div class="platform-strip__chips">
-              <span class="platform-chip">Xcode</span>
-              <span class="platform-chip">App Store Connect</span>
-              <span class="platform-chip">APNs</span>
-              <span class="platform-chip">Sign in with Apple</span>
-              <span class="platform-chip">StoreKit 2</span>
-              <span class="platform-chip">Widgets</span>
-              <span class="platform-chip">App Clips</span>
-            </div>
-          </div>
-          <div class="platform-strip__group">
-            <strong>Cross-platform</strong>
-            <div class="platform-strip__chips">
-              <span class="platform-chip">React Native</span>
-              <span class="platform-chip">CircleCI</span>
-              <span class="platform-chip">Android Studio</span>
-              <span class="platform-chip">Play Console</span>
-              <span class="platform-chip">Code signing</span>
-              <span class="platform-chip">TestFlight</span>
-              <span class="platform-chip">Sentry</span>
-            </div>
-          </div>
-        </div>
       </section>
 
       <div class="proof-matrix proof-matrix--lower" aria-label="More shipped products">
@@ -1334,7 +1261,7 @@
           </div>
           <ul class="proof-slot__points">
             <li>StoreKit 2 subscriptions</li>
-            <li>Implemented paywall logic and entitlement flows</li>
+            <li>Paywall logic + entitlements</li>
           </ul>
           <a class="proof-slot__link" href="https://www.traineffective.com">traineffective.com</a>
         </div>
@@ -1346,7 +1273,7 @@
           </div>
           <ul class="proof-slot__points">
             <li>In-app purchase flow</li>
-            <li>Handled sandbox testing and edge-case billing states</li>
+            <li>Sandbox testing + billing edge cases</li>
           </ul>
           <a class="proof-slot__link" href="https://www.traineffective.com">traineffective.com</a>
         </div>
