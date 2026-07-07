@@ -184,6 +184,13 @@
       color: var(--g900);
     }
 
+    .cv-role__focus {
+      font-size: var(--text-small);
+      font-weight: 600;
+      color: var(--g400);
+      letter-spacing: 0.02em;
+    }
+
     .cv-role__date {
       font-size: var(--text-small);
       color: var(--g400);
@@ -784,6 +791,10 @@
         font-size: 9pt;
         line-height: 1.3;
       }
+      .cv-role__focus {
+        font-size: 7pt;
+        letter-spacing: 0;
+      }
       .cv-aside-block { margin-bottom: 7px; }
       .cv-profile { line-height: 1.36; }
       .cv-edu__detail { display: none; }
@@ -917,8 +928,8 @@
               <span class="cv-stack__badge"><img src="https://img.shields.io/badge/App%20Store%20Connect-F5F5F5?style=flat-square&logo=appstore&logoColor=111111&labelColor=F5F5F5" alt="App Store Connect" /></span>
               <span class="cv-stack__badge"><img src="https://img.shields.io/badge/Cloudflare-F5F5F5?style=flat-square&logo=cloudflare&logoColor=111111&labelColor=F5F5F5" alt="Cloudflare" /></span>
               <span class="cv-stack__badge"><img src="https://img.shields.io/badge/Firebase-F5F5F5?style=flat-square&logo=firebase&logoColor=111111&labelColor=F5F5F5" alt="Firebase" /></span>
+              <span class="cv-stack__badge"><img src="https://img.shields.io/badge/GraphQL-F5F5F5?style=flat-square&logo=graphql&logoColor=111111&labelColor=F5F5F5" alt="GraphQL" /></span>
               <span class="cv-stack__badge"><img src="https://img.shields.io/badge/Crashlytics-F5F5F5?style=flat-square&logo=firebase&logoColor=111111&labelColor=F5F5F5" alt="Crashlytics" /></span>
-              <span class="cv-stack__badge"><img src="https://img.shields.io/badge/SQL-F5F5F5?style=flat-square&logo=postgresql&logoColor=111111&labelColor=F5F5F5" alt="SQL" /></span>
               <span class="cv-stack__badge"><img src="https://img.shields.io/badge/Claude-F5F5F5?style=flat-square&logo=claude&logoColor=111111&labelColor=F5F5F5" alt="Claude" /></span>
               <span class="cv-stack__badge"><img src="https://img.shields.io/badge/Cursor-F5F5F5?style=flat-square&logo=cursor&logoColor=111111&labelColor=F5F5F5" alt="Cursor" /></span>
               <span class="cv-stack__badge"><img src="https://img.shields.io/badge/Codex-F5F5F5?style=flat-square&amp;logo=data:image/svg%2Bxml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0iIzExMTExMSI%2BCjxwYXRoIGQ9Ik0yMi4yODIgOS44MjFhNS45ODUgNS45ODUgMCAwIDAtLjUxNi00LjkxIDYuMDQ2IDYuMDQ2IDAgMCAwLTYuNTEtMi45IDYuMDY1IDYuMDY1IDAgMCAwLTEwLjI3NSAyLjE2OSA1Ljk4NSA1Ljk4NSAwIDAgMC0zLjk5OCAyLjkgNi4wNDYgNi4wNDYgMCAwIDAgLjc0MyA3LjA5NyA1Ljk4IDUuOTggMCAwIDAgLjUxIDQuOTExIDYuMDUxIDYuMDUxIDAgMCAwIDYuNTE1IDIuOSA1Ljk4NSA1Ljk4NSAwIDAgMCA0LjUwOSAyLjAxMiA2LjA1NiA2LjA1NiAwIDAgMCA1Ljc3Mi00LjIwNiA1Ljk5IDUuOTkgMCAwIDAgMy45OTctMi45IDYuMDU2IDYuMDU2IDAgMCAwLS43NDctNy4wNzN6TTEzLjI2IDIyLjQzYTQuNDc2IDQuNDc2IDAgMCAxLTIuODc2LTEuMDRsLjE0MS0uMDgxIDQuNzc5LTIuNzU4YS43OTUuNzk1IDAgMCAwIC4zOTItLjY4MXYtNi43MzdsMi4wMiAxLjE2OGEuMDcxLjA3MSAwIDAgMSAuMDM4LjA1MnY1LjU4M2E0LjUwNCA0LjUwNCAwIDAgMS00LjQ5NCA0LjQ5NHpNMy42IDE4LjMwNGE0LjQ3IDQuNDcgMCAwIDEtLjUzNS0zLjAxNGwuMTQyLjA4NSA0Ljc4MyAyLjc1OWEuNzcxLjc3MSAwIDAgMCAuNzggMGw1Ljg0My0zLjM2OXYyLjMzMmEuMDguMDggMCAwIDEtLjAzMy4wNjJMOS43NCAxOS45NWE0LjUgNC41IDAgMCAxLTYuMTQtMS42NDZ6TTIuMzQgNy44OTZhNC40ODUgNC40ODUgMCAwIDEgMi4zNjYtMS45NzNWMTEuNmEuNzY2Ljc2NiAwIDAgMCAuMzg4LjY3Nmw1LjgxNSAzLjM1NS0yLjAyIDEuMTY4YS4wNzYuMDc2IDAgMCAxLS4wNzEgMGwtNC44My0yLjc4NkE0LjUwNCA0LjUwNCAwIDAgMSAyLjM0IDcuODcyek0xOC45MzcgMTEuNzUxbC01LjgzMy0zLjM4N0wxNS4xMTkgNy4yYS4wNzYuMDc2IDAgMCAxIC4wNzEgMGw0LjgzIDIuNzkxYTQuNDk0IDQuNDk0IDAgMCAxLS42NzYgOC4xMDV2LTUuNjc4YS43OS43OSAwIDAgMC0uNDA3LS42Njd6bTIuMDEtMy4wMjNsLS4xNDEtLjA4NS00Ljc3NC0yLjc4MmEuNzc2Ljc3NiAwIDAgMC0uNzg1IDBMOS40MDkgOS4yM1Y2Ljg5N2EuMDY2LjA2NiAwIDAgMSAuMDI4LS4wNjFsNC44My0yLjc4N2E0LjUgNC41IDAgMCAxIDYuNjggNC42NnptLTEyLjY0IDQuMTM1bC0yLjAyLTEuMTYzYS4wOC4wOCAwIDAgMS0uMDM4LS4wNTdWNi4wNzVhNC41IDQuNSAwIDAgMSA3LjM3NS0zLjQ1M2wtLjE0Mi4wOC00Ljc3OCAyLjc1OGEuNzk1Ljc5NSAwIDAgMC0uMzkzLjY4MWwtLjAwNCA2Ljc0OHoiLz4KPC9zdmc%2B&amp;logoColor=111111&amp;labelColor=F5F5F5" alt="Codex" /></span>
@@ -933,12 +944,12 @@
 
             <article class="cv-role">
               <div class="cv-role__head">
-                <h3 class="cv-role__title">Senior Software Engineer</h3>
+                <h3 class="cv-role__title">Senior Software Engineer <span class="cv-role__focus">· Xcode · Cloudflare · Apple Developer</span></h3>
                 <time class="cv-role__date">Apr 2024 – Present</time>
               </div>
               <p class="cv-role__org">App Next Day · Remote</p>
               <ul class="cv-role__list">
-                <li>Founded a mobile product company focused on rapid native iOS app delivery — from customer brief to shipped Xcode project.</li>
+                <li>Built a macOS cloud platform focused on rapid native iOS app delivery — from customer brief to shipped Xcode project.</li>
                 <li>Built <strong>XC Wizard</strong>: production macOS/iOS platform in Swift, TypeScript, and Node.js (SwiftUI, Next.js, Cloudflare Workers + PostgreSQL).</li>
                 <li>Shipped Sign in with Apple, StoreKit 2 IAP, APNs push, real-time WebSockets, and App Store Connect automation.</li>
               </ul>
@@ -946,7 +957,7 @@
 
             <article class="cv-role">
               <div class="cv-role__head">
-                <h3 class="cv-role__title">Software Engineer</h3>
+                <h3 class="cv-role__title">Software Engineer <span class="cv-role__focus">· React Native · GraphQL · App Store Connect</span></h3>
                 <time class="cv-role__date">May 2023 – Apr 2024</time>
               </div>
               <p class="cv-role__org">Zapp · London</p>
@@ -960,7 +971,7 @@
 
             <article class="cv-role">
               <div class="cv-role__head">
-                <h3 class="cv-role__title">Software Engineer</h3>
+                <h3 class="cv-role__title">Software Engineer <span class="cv-role__focus">· React Native · Firebase</span></h3>
                 <time class="cv-role__date">Mar 2021 – Apr 2023</time>
               </div>
               <p class="cv-role__org">Train Effective · London</p>
@@ -974,7 +985,7 @@
 
             <article class="cv-role">
               <div class="cv-role__head">
-                <h3 class="cv-role__title">Summer Technology Analyst</h3>
+                <h3 class="cv-role__title">Summer Technology Analyst <span class="cv-role__focus">· Legacy Systems · Red Hat OpenShift</span></h3>
                 <time class="cv-role__date">Jun 2019 – Aug 2019</time>
               </div>
               <p class="cv-role__org">Barclays · London</p>
@@ -985,7 +996,7 @@
 
             <article class="cv-role">
               <div class="cv-role__head">
-                <h3 class="cv-role__title">Spring Technology Analyst</h3>
+                <h3 class="cv-role__title">Spring Technology Analyst <span class="cv-role__focus">· Artificial Intelligence</span></h3>
                 <time class="cv-role__date">Aug 2018 – Sep 2018</time>
               </div>
               <p class="cv-role__org">Morgan Stanley · London</p>
@@ -1001,14 +1012,14 @@
             <div class="cv-edu">
               <p class="cv-edu__degree">Higher Education</p>
               <p class="cv-edu__subjects">BSc Engineering <span class="cv-edu__sep">-</span> 2:1 <span class="cv-edu__meta">(First-year: First Class)</span></p>
-              <p class="cv-edu__school">University of Warwick · 2017 – 2020</p>
+              <p class="cv-edu__school">University of Warwick · 2017 – 2019</p>
               <p class="cv-edu__detail">First-year performance: First Class</p>
             </div>
             <div class="cv-edu">
               <p class="cv-edu__degree">A-Level</p>
-              <p class="cv-edu__subjects">Mathematics <span class="cv-edu__sep">-</span> A <span class="cv-edu__sep">·</span> Philosophy <span class="cv-edu__sep">-</span> A <span class="cv-edu__meta">(194/200 UMS)</span> <span class="cv-edu__sep">·</span> Physics <span class="cv-edu__sep">-</span> B</p>
+              <p class="cv-edu__subjects">Mathematics <span class="cv-edu__sep">-</span> A <span class="cv-edu__sep">·</span> Philosophy <span class="cv-edu__sep">-</span> A<span class="cv-edu__meta">(S 194/200 UMS)</span> <span class="cv-edu__sep">·</span> Physics <span class="cv-edu__sep">-</span> B</p>
               <p class="cv-edu__school">Sharnbrook Upper School · 2015 – 2017</p>
-              <p class="cv-edu__detail">Philosophy performance: 194/200 UMS</p>
+              <p class="cv-edu__detail">Philosophy AS performance: 194/200 UMS</p>
             </div>
           </section>
 
@@ -1034,7 +1045,7 @@
               <article class="cv-extra__item">
                 <div class="cv-extra__head">
                   <h3 class="cv-extra__title">Warwick Engineering Society</h3>
-                  <span class="cv-extra__date">2017 – 2020</span>
+                  <span class="cv-extra__date">2017 – 2019</span>
                 </div>
                 <p class="cv-extra__desc">Hackathons, bridge-building comps, rapid prototyping nights.</p>
               </article>
