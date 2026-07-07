@@ -391,6 +391,7 @@
       align-items: center;
       gap: 16px;
       margin-bottom: var(--proof-section-gap);
+      min-width: 0;
     }
 
     .proof-hero .proof-card__media {
@@ -400,18 +401,22 @@
       justify-content: flex-start;
       padding: 0;
       background: transparent;
+      min-width: 0;
+      max-width: 100%;
+      overflow: hidden;
     }
 
     .proof-hero .proof-card__body {
       order: 2;
       padding: 8px 6px;
       text-align: center;
+      min-width: 0;
     }
 
     .proof-hero .proof-card__img {
       display: block;
-      width: 100%;
-      max-width: 540px;
+      width: 88%;
+      max-width: 100%;
       height: auto;
       object-fit: contain;
       object-position: left center;
@@ -797,22 +802,27 @@
       .cv-page--evidence .cv__name { font-size: 11.5pt; margin-bottom: 1px; }
       .cv-page--evidence .cv__tagline { font-size: 6.8pt; }
       .cv-page--evidence .proof-hero {
-        grid-template-columns: 1.45fr 0.9fr;
-        gap: 6px;
+        grid-template-columns: 1.5fr 0.95fr;
+        gap: 8px;
         margin-bottom: 0;
       }
       .cv-page--evidence .proof-hero .proof-card__media {
         padding: 0;
-        max-height: none;
+        min-width: 0;
+        max-width: 100%;
+        overflow: hidden;
       }
       .cv-page--evidence .proof-hero .proof-card__body {
         padding: 2px 4px 4px;
+        min-width: 0;
       }
       .cv-page--evidence .proof-hero .proof-card__img {
-        width: 100%;
-        max-width: none;
+        width: 86%;
+        max-width: 100%;
         height: auto;
         margin-inline: 0;
+        object-fit: contain;
+        object-position: left center;
       }
       .cv-page--evidence .proof-card__head { margin-bottom: 1px; }
       .cv-page--evidence .proof-card__name { font-size: 8.8pt; }
@@ -831,6 +841,7 @@
       }
       .cv-page--evidence .proof-matrix--hero-followup {
         margin-top: 0;
+        margin-bottom: 0;
         height: 67mm;
         --proof-image-row: 1.43fr;
         --proof-text-row: 0.59fr;
@@ -838,7 +849,7 @@
         overflow: visible;
       }
       .cv-page--evidence .proof-matrix--lower {
-        margin-top: 2px;
+        margin-top: 24px;
         margin-bottom: 0;
         height: 67mm;
         --proof-image-row: 1.43fr;
@@ -909,7 +920,7 @@
       .cv-page--evidence .proof-matrix .proof-slot__points li { font-size: 7.3pt; line-height: 1.28; margin-bottom: 0; }
       .cv-page--evidence .proof-matrix .proof-slot__link { font-size: 6.6pt; }
       .cv-page--evidence .proof-matrix__cell--text .proof-slot__link { margin-top: 4px; }
-      .cv-page--evidence .proof-closer { margin-top: 10px; padding-top: 4px; }
+      .cv-page--evidence .proof-closer { margin-top: 22px; padding-top: 6px; }
       .cv-page--evidence .proof-closer .cv-section__title { margin-bottom: 3px; font-size: 7.6pt; }
       .cv-page--evidence .proof-closer__text { font-size: 7.1pt; line-height: 1.34; }
       .cv__aside, .proof-card, .proof-slot, .proof-cluster {
@@ -1188,8 +1199,6 @@
               <li>Build history, QA loops, and iterative file-level app generation</li>
               <li>Cloudflare Workers, Neon/Postgres, and per-app backend provisioning</li>
               <li>Third-party API exploration, billing, and App Store submission workflow support</li>
-              <li>Realtime, storage, auth, notifications, and purchase capability scaffolding</li>
-              <li>Designed to take an app from brief to production-ready Xcode output</li>
             </ul>
             <a class="proof-card__link" href="https://xcwizard.com">xcwizard.com</a>
           </div>
@@ -1275,9 +1284,9 @@
           </div>
           <ul class="proof-slot__points">
             <li>Solo build · Spotify + Apple Music APIs</li>
-            <li>Now playing, queue, and App Store release</li>
+            <li>Now playing, queue, and demo release</li>
           </ul>
-          <a class="proof-slot__link" href="https://apps.apple.com/gb/app/trakstar/id1636470089">App Store ↗</a>
+          <a class="proof-slot__link" href="https://drive.google.com/file/d/1Zxq6hOuU8FnzSexbLM2VKcS9zozZ-Zqx/view?usp=drive_link">Demo ↗</a>
         </div>
 
         <div class="proof-matrix__cell proof-matrix__cell--text proof-matrix__cell--span2 proof-matrix__cell--divider-right">
