@@ -1,0 +1,1353 @@
+<!DOCTYPE html>
+<html lang="en-GB" data-variant="vanilla" data-theme="greyscale">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tobi Bey — CV</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600&family=Source+Serif+4:opsz,wght@8..60,600&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ─── Tokens ─────────────────────────────────────────── */
+    :root {
+      --g900: #0a0a0a;
+      --g800: #1a1a1a;
+      --g600: #525252;
+      --g400: #737373;
+      --g200: #e5e5e5;
+      --g100: #f5f5f5;
+      --g000: #ffffff;
+
+      --accent: var(--g800);
+
+      --font-display: "Source Serif 4", Georgia, "Times New Roman", serif;
+      --font-body: "Source Sans 3", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+
+      --text-display: 24pt;
+      --text-lead: 10pt;
+      --text-body: 9.5pt;
+      --text-small: 8.5pt;
+      --text-caption: 7pt;
+
+      --leading-tight: 1.25;
+      --leading-body: 1.45;
+
+      --page-width: 210mm;
+      --col-aside: 30%;
+      --space-xs: 4px;
+      --space-sm: 8px;
+      --space-md: 12px;
+      --space-lg: 16px;
+      --space-xl: 20px;
+    }
+
+    /* ─── Reset ──────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    @page { size: A4; margin: 8mm 11mm; }
+
+    html {
+      font-size: var(--text-body);
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    body {
+      font-family: var(--font-body);
+      font-weight: 400;
+      color: var(--g800);
+      background: var(--g200);
+      line-height: var(--leading-body);
+    }
+
+    /* ─── Page shells ────────────────────────────────────── */
+    .cv-page {
+      max-width: var(--page-width);
+      margin: var(--space-xl) auto;
+      background: var(--g000);
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08), 0 8px 24px rgba(0, 0, 0, 0.06);
+    }
+
+    .cv-page--resume {
+      min-height: 297mm;
+    }
+
+    .cv-page__inner {
+      padding: 22px 24px 20px;
+    }
+
+    /* ─── Header (page 1) ────────────────────────────────── */
+    .cv__header {
+      padding-bottom: var(--space-md);
+      margin-bottom: var(--space-lg);
+      border-bottom: 1.5px solid var(--g900);
+    }
+
+    .cv__name {
+      font-family: var(--font-display);
+      font-size: var(--text-display);
+      font-weight: 600;
+      line-height: var(--leading-tight);
+      letter-spacing: -0.02em;
+      color: var(--g900);
+      margin-bottom: var(--space-xs);
+    }
+
+    .cv__tagline {
+      font-size: var(--text-lead);
+      font-weight: 600;
+      color: var(--g600);
+      letter-spacing: 0.01em;
+    }
+
+    /* ─── Page-1 grid ───────────────────────────────────── */
+    .cv__grid {
+      display: grid;
+      grid-template-columns: 1fr var(--col-aside);
+      align-items: stretch;
+    }
+
+    .cv__main {
+      padding-right: var(--space-xl);
+      border-right: 1px solid var(--g200);
+    }
+
+    .cv__aside {
+      background: var(--g100);
+      padding: var(--space-md) 14px var(--space-md) var(--space-lg);
+    }
+
+    /* ─── Sections ───────────────────────────────────────── */
+    .cv-section {
+      margin-bottom: var(--space-md);
+    }
+
+    .cv-section:last-child { margin-bottom: 0; }
+
+    .cv-section__title {
+      font-size: var(--text-caption);
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--g600);
+      border-bottom: 1px solid var(--g200);
+      padding-bottom: 3px;
+      margin-bottom: var(--space-sm);
+    }
+
+    /* ─── Stack badges ───────────────────────────────────── */
+    .cv-stack__intro {
+      font-size: var(--text-small);
+      color: var(--g600);
+      margin-bottom: var(--space-sm);
+    }
+
+    .cv-stack__grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px 5px;
+    }
+
+    .cv-stack__badge {
+      display: inline-flex;
+      align-items: center;
+    }
+
+    .cv-stack__badge img {
+      display: block;
+      height: 21px;
+      filter: grayscale(1) contrast(1.05);
+    }
+
+    /* Custom pill when shields.io has no logo slug (e.g. Codex → OpenAI) */
+    .cv-stack__badge--custom {
+      height: 21px;
+      padding: 0 7px 0 5px;
+      background: #f5f5f5;
+      border-radius: 3px;
+      gap: 4px;
+      font-size: 11px;
+      font-weight: 600;
+      color: #111;
+      letter-spacing: 0.01em;
+      line-height: 1;
+    }
+
+    .cv-stack__badge--custom svg {
+      width: 13px;
+      height: 13px;
+      flex-shrink: 0;
+    }
+
+    /* ─── Role entries ───────────────────────────────────── */
+    .cv-role {
+      margin-bottom: 10px;
+      break-inside: avoid;
+    }
+
+    .cv-role:last-child { margin-bottom: 0; }
+
+    .cv-role__head {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: var(--space-sm);
+    }
+
+    .cv-role__title {
+      font-size: var(--text-body);
+      font-weight: 600;
+      color: var(--g900);
+    }
+
+    .cv-role__date {
+      font-size: var(--text-small);
+      color: var(--g400);
+      white-space: nowrap;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .cv-role__org {
+      font-size: var(--text-small);
+      color: var(--g600);
+      margin: 1px 0 var(--space-xs);
+    }
+
+    .cv-role__list { padding-left: 14px; }
+
+    .cv-role__list li {
+      font-size: var(--text-body);
+      margin-bottom: 3px;
+      color: var(--g800);
+    }
+
+    .cv-role__list li::marker { color: var(--g400); }
+
+    .cv-role__list strong {
+      font-weight: 600;
+      color: var(--g900);
+    }
+
+    /* ─── Sidebar blocks ─────────────────────────────────── */
+    .cv-aside-block { margin-bottom: var(--space-md); }
+    .cv-aside-block:last-child { margin-bottom: 0; }
+
+    .cv-aside-block .cv-section__title {
+      font-size: 6.5pt;
+      margin-bottom: 6px;
+    }
+
+    .cv-contact__item {
+      font-size: var(--text-small);
+      color: var(--g600);
+      margin-bottom: 3px;
+      word-break: break-word;
+    }
+
+    .cv-contact__item a { color: var(--g600); text-decoration: none; }
+
+    .cv-profile {
+      font-size: var(--text-small);
+      color: var(--g800);
+      line-height: var(--leading-body);
+    }
+
+    .cv-skill { margin-bottom: 6px; }
+    .cv-skill:last-child { margin-bottom: 0; }
+
+    .cv-skill__label {
+      display: block;
+      font-size: 8pt;
+      font-weight: 600;
+      color: var(--g900);
+      margin-bottom: 1px;
+    }
+
+    .cv-skill__value {
+      font-size: 8pt;
+      color: var(--g600);
+      line-height: 1.35;
+    }
+
+    /* ─── Education ──────────────────────────────────────── */
+    .cv-edu { margin-bottom: 6px; break-inside: avoid; }
+    .cv-edu:last-child { margin-bottom: 0; }
+    .cv-edu__degree { font-size: var(--text-body); font-weight: 600; color: var(--g900); }
+    .cv-edu__school { font-size: var(--text-small); color: var(--g600); }
+    .cv-edu__detail { font-size: 8pt; color: var(--g400); }
+    .cv-edu__subjects {
+      font-size: var(--text-body);
+      font-weight: 600;
+      color: var(--g900);
+      margin-bottom: 2px;
+    }
+    .cv-edu__sep {
+      color: var(--g400);
+      font-weight: 400;
+      padding: 0 0.15em;
+    }
+
+    /* ─── Extracurriculars (full-width below grid) ───────── */
+    .cv-extra {
+      margin-top: var(--space-md);
+      padding-top: var(--space-sm);
+      border-top: 1px solid var(--g200);
+    }
+
+    .cv-extra__grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px 14px;
+      align-items: stretch;
+    }
+
+    .cv-extra__item {
+      break-inside: avoid;
+    }
+
+    .cv-extra__head {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: var(--space-sm);
+      margin-bottom: 2px;
+    }
+
+    .cv-extra__title {
+      font-size: var(--text-body);
+      font-weight: 600;
+      color: var(--g900);
+    }
+
+    .cv-extra__date {
+      font-size: 8pt;
+      color: var(--g400);
+      white-space: nowrap;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .cv-extra__desc {
+      font-size: var(--text-small);
+      color: var(--g600);
+      line-height: 1.38;
+    }
+
+    .cv-extra__desc strong {
+      font-weight: 600;
+      color: var(--g900);
+    }
+
+    /* ══════════════════════════════════════════════════════
+       PAGE 2 — Proof of work (visual grid)
+       ══════════════════════════════════════════════════════ */
+
+    .cv-page--evidence .cv-page__inner {
+      padding-top: 14px;
+    }
+
+    .evidence__header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      padding-bottom: 6px;
+      margin-bottom: 8px;
+      border-bottom: 1.5px solid var(--g900);
+    }
+
+    .evidence__title {
+      font-family: var(--font-display);
+      font-size: 14pt;
+      font-weight: 600;
+      color: var(--g900);
+      letter-spacing: -0.01em;
+    }
+
+    .evidence__name {
+      font-size: var(--text-small);
+      color: var(--g400);
+    }
+
+    /* Proof layout — MacBook hero + phone matrix */
+    .proof-masonry {
+      margin-bottom: 0;
+    }
+
+    .proof-card {
+      display: flex;
+      flex-direction: column;
+      break-inside: avoid;
+      border: none;
+      background: var(--g000);
+      box-shadow: none;
+    }
+
+    .proof-card__media {
+      position: relative;
+      width: 100%;
+      background: transparent;
+      border-bottom: none;
+      overflow: hidden;
+    }
+
+    /* XC Wizard — full-width MacBook hero */
+    .proof-hero {
+      margin-bottom: 14px;
+    }
+
+    .proof-hero .proof-card__media {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 8px 8px 2px;
+      background: transparent;
+    }
+
+    .proof-hero .proof-card__body {
+      padding: 8px 2px 0;
+    }
+
+    .macbook-mockup {
+      position: relative;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+    }
+
+    .macbook-mockup__device {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+    }
+
+    .macbook-mockup__lid {
+      aspect-ratio: 1922 / 1080;
+      width: 80%;
+      height: auto;
+      flex-shrink: 0;
+      margin-inline: auto;
+      background: #1c1c1e;
+      border-radius: 6px 6px 0 0;
+      padding: 5px 5px 3px;
+      box-shadow:
+        0 0 0 1px #3a3a3c,
+        0 6px 18px rgba(0, 0, 0, 0.2);
+    }
+
+    .macbook-mockup__bezel {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      border-radius: 3px;
+      overflow: hidden;
+      background: #111;
+    }
+
+    .macbook-mockup__camera-bar {
+      display: none;
+    }
+
+    .macbook-mockup__camera {
+      width: 2.5px;
+      height: 2.5px;
+      border-radius: 50%;
+      background: #2a2a2a;
+      box-shadow: 0 0 0 0.5px #444;
+    }
+
+    .macbook-mockup__base {
+      width: 90%;
+      height: 4px;
+      margin-top: -1px;
+      background: linear-gradient(180deg, #d4d4d8 0%, #a1a1aa 55%, #71717a 100%);
+      border-radius: 0 0 4px 4px;
+      box-shadow: 0 3px 6px rgba(0, 0, 0, 0.14);
+    }
+
+    .macbook-mockup__base::after {
+      content: "";
+      display: block;
+      width: 18%;
+      height: 1px;
+      margin: 0.5px auto 0;
+      background: #52525b;
+      border-radius: 1px;
+    }
+
+    .proof-hero .proof-card__img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      object-position: top center;
+      display: block;
+    }
+
+    /* 4-column phone grid */
+    .proof-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 6px;
+      margin-bottom: 6px;
+    }
+
+    /* 6×2 proof matrix — row 1: desc + images, row 2: images + descs */
+    .proof-matrix {
+      display: grid;
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+      grid-template-rows: repeat(2, minmax(0, 1fr));
+      gap: 10px 6px;
+      background: transparent;
+      height: 100mm;
+      margin-bottom: 16px;
+      overflow: hidden;
+    }
+
+    .proof-matrix__cell {
+      min-height: 0;
+      min-width: 0;
+      overflow: hidden;
+      break-inside: avoid;
+    }
+
+    .proof-matrix__cell--img {
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      padding: 0 2px;
+      background: transparent;
+      min-height: 0;
+    }
+
+    .proof-matrix__cell--img img {
+      display: block;
+      width: auto;
+      height: 100%;
+      max-width: 100%;
+      object-fit: contain;
+      object-position: bottom center;
+      filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.08));
+    }
+
+    .proof-matrix__cell--text {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      padding: 6px 7px 7px;
+      background: var(--g100);
+      border-radius: 4px;
+    }
+
+    .proof-matrix__cell--span2 {
+      grid-column: span 2;
+    }
+
+    .proof-matrix:last-of-type {
+      margin-bottom: 0;
+    }
+
+    .proof-grid:last-child { margin-bottom: 0; }
+
+    .proof-slot {
+      display: grid;
+      grid-template-rows: 1fr 1fr;
+      border: 1px solid var(--g200);
+      background: var(--g000);
+      break-inside: avoid;
+      height: 100%;
+      min-height: 0;
+    }
+
+    .proof-slot__media {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2px 3px;
+      background: var(--g100);
+      min-height: 0;
+      overflow: hidden;
+    }
+
+    .proof-slot__media .proof-shot--framed {
+      display: block;
+      width: auto;
+      height: 100%;
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+    }
+
+    .proof-shot--framed {
+      display: block;
+      width: 100%;
+      height: auto;
+      max-height: 38mm;
+      object-fit: contain;
+    }
+
+    .proof-slot__placeholder {
+      position: absolute;
+      inset: 6px 4px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 3px;
+      background: linear-gradient(135deg, var(--g100) 0%, var(--g000) 100%);
+      border: 1px dashed var(--g200);
+      border-radius: 2px;
+      z-index: 0;
+    }
+
+    .proof-slot__media:has(.proof-slot__img[src]:not([src=""])) .proof-slot__placeholder {
+      display: none;
+    }
+
+    .proof-slot__placeholder-label {
+      font-size: 6pt;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--g400);
+      text-align: center;
+    }
+
+    .proof-slot__placeholder-hint {
+      font-size: 5.5pt;
+      color: var(--g400);
+      text-align: center;
+    }
+
+    .proof-slot__body {
+      padding: 4px 5px 5px;
+      min-height: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      overflow: hidden;
+    }
+
+    .proof-card__placeholder {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+      padding: 6px;
+      background: linear-gradient(135deg, var(--g100) 0%, var(--g000) 100%);
+      border: 1px dashed var(--g200);
+      margin: 5px;
+      border-radius: 2px;
+      z-index: 0;
+    }
+
+    .proof-card__placeholder-label {
+      font-size: 6.5pt;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--g400);
+      text-align: center;
+    }
+
+    .proof-card__placeholder-hint {
+      font-size: 6pt;
+      color: var(--g400);
+      text-align: center;
+      max-width: 92%;
+      line-height: 1.3;
+    }
+
+    .proof-card__media:has(.proof-card__img[src]:not([src=""])) .proof-card__placeholder {
+      display: none;
+    }
+
+    .proof-card__showcase {
+      font-size: 5.5pt;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--g400);
+      margin-top: 2px;
+    }
+
+    .proof-card__body {
+      padding: 5px 7px 6px;
+    }
+
+    .proof-card__head,
+    .proof-slot__head {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: var(--space-sm);
+      margin-bottom: 3px;
+    }
+
+    .proof-card__name,
+    .proof-slot__name {
+      font-size: 8pt;
+      font-weight: 600;
+      color: var(--g900);
+    }
+
+    .proof-card__tag,
+    .proof-slot__tag {
+      font-size: 5.5pt;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--g400);
+      white-space: nowrap;
+    }
+
+    .proof-card__points,
+    .proof-slot__points {
+      padding-left: 11px;
+      margin-bottom: 3px;
+    }
+
+    .proof-card__points li,
+    .proof-slot__points li {
+      font-size: 7pt;
+      color: var(--g600);
+      margin-bottom: 1px;
+      line-height: 1.3;
+    }
+
+    .proof-card__points li::marker,
+    .proof-slot__points li::marker { color: var(--g400); }
+
+    .proof-card__link,
+    .proof-slot__link {
+      font-size: 6.5pt;
+      color: var(--g400);
+      text-decoration: none;
+      border-bottom: 1px solid var(--g200);
+    }
+
+    /* Platform delivery + closing */
+    .platform-strip {
+      padding-top: 12px;
+      border-top: 1px solid var(--g200);
+      margin-top: 4px;
+      margin-bottom: 16px;
+    }
+
+    .platform-strip .cv-section__title {
+      margin-bottom: 6px;
+    }
+
+    .platform-strip__intro {
+      font-size: 7pt;
+      color: var(--g600);
+      margin-bottom: 5px;
+      line-height: 1.3;
+    }
+
+    .platform-strip__groups {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6px 10px;
+    }
+
+    .platform-strip__group strong {
+      display: block;
+      font-size: 6.5pt;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--g400);
+      margin-bottom: 3px;
+    }
+
+    .platform-strip__chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 3px;
+    }
+
+    .platform-chip {
+      font-size: 6.5pt;
+      font-weight: 500;
+      color: var(--g800);
+      background: var(--g100);
+      border: 1px solid var(--g200);
+      padding: 1px 5px;
+      border-radius: 2px;
+      white-space: nowrap;
+    }
+
+    /* Closing statement — page 2 sign-off */
+    .proof-closer {
+      padding-top: 12px;
+      border-top: 1px solid var(--g200);
+      margin-top: 16px;
+    }
+
+    .proof-closer .cv-section__title {
+      margin-bottom: 6px;
+    }
+
+    .proof-closer__text {
+      font-size: 7.5pt;
+      color: var(--g800);
+      line-height: 1.42;
+      max-width: 95%;
+    }
+
+    /* ─── Print ──────────────────────────────────────────── */
+    @media print {
+      body { background: var(--g000); }
+      .cv-page {
+        margin: 0;
+        box-shadow: none;
+        max-width: none;
+        min-height: auto;
+        height: auto;
+      }
+      .cv-page--resume {
+        page-break-after: always;
+        break-after: page;
+      }
+      .cv-page--evidence {
+        page-break-before: auto;
+        break-before: auto;
+      }
+      .cv-page__inner { padding: 0; }
+      .cv__header {
+        margin-bottom: 10px;
+        padding-bottom: 8px;
+      }
+      .cv-section { margin-bottom: 7px; }
+      .cv-stack__intro { display: none; }
+      .cv-role { margin-bottom: 5px; }
+      .cv-role__list li {
+        margin-bottom: 0.7px;
+        font-size: 9pt;
+        line-height: 1.3;
+      }
+      .cv-aside-block { margin-bottom: 7px; }
+      .cv-profile { line-height: 1.36; }
+      .cv-edu__detail { display: none; }
+      .cv-extra {
+        margin-top: 4px;
+        padding-top: 3px;
+        margin-bottom: 0;
+        break-inside: avoid;
+        page-break-inside: avoid;
+      }
+      .cv-extra .cv-section__title { margin-bottom: 4px; }
+      .cv-extra__grid { gap: 3px 10px; }
+      .cv-extra__head { margin-bottom: 1px; }
+      .cv-extra__title { font-size: 9pt; }
+      .cv-extra__date { font-size: 7.5pt; }
+      .cv-extra__desc { font-size: 7.3pt; line-height: 1.22; }
+      .cv-page--evidence .evidence__header { margin-bottom: 8px; padding-bottom: 4px; }
+      .cv-page--evidence .evidence__title { font-size: 12pt; }
+      .cv-page--evidence .proof-hero { margin-bottom: 5px; }
+      .cv-page--evidence .proof-hero .proof-card__media { padding: 2px 4px 0; }
+      .cv-page--evidence .proof-hero .proof-card__body { padding: 3px 2px 0; }
+      .cv-page--evidence .macbook-mockup__lid { width: 80%; height: auto; aspect-ratio: 1922 / 1080; }
+      .cv-page--evidence .macbook-mockup__base { width: 90%; height: 4px; }
+      .cv-page--evidence .proof-card__head { margin-bottom: 1px; }
+      .cv-page--evidence .proof-card__name { font-size: 7.5pt; }
+      .cv-page--evidence .proof-card__points { margin-bottom: 1px; }
+      .cv-page--evidence .proof-card__points li { font-size: 6pt; line-height: 1.2; margin-bottom: 0; }
+      .cv-page--evidence .proof-card__link { font-size: 6pt; }
+      .cv-page--evidence .proof-matrix {
+        height: 64mm;
+        gap: 2px 2px;
+        margin-bottom: 4px;
+      }
+      .cv-page--evidence .proof-matrix__cell--img { padding: 0 1px; }
+      .cv-page--evidence .proof-matrix__cell--img img { filter: none; }
+      .cv-page--evidence .proof-matrix__cell--text {
+        padding: 3px 4px 4px;
+        border-radius: 3px;
+      }
+      .cv-page--evidence .proof-matrix .proof-slot__head { margin-bottom: 1px; }
+      .cv-page--evidence .proof-matrix .proof-slot__name { font-size: 6.5pt; }
+      .cv-page--evidence .proof-matrix .proof-slot__tag { font-size: 5pt; }
+      .cv-page--evidence .proof-matrix .proof-slot__points { margin-bottom: 1px; padding-left: 9px; }
+      .cv-page--evidence .proof-matrix .proof-slot__points li { font-size: 6pt; line-height: 1.18; margin-bottom: 0; }
+      .cv-page--evidence .proof-matrix .proof-slot__link { font-size: 5.5pt; }
+      .cv-page--evidence .platform-strip {
+        margin-top: 0;
+        margin-bottom: 5px;
+        padding-top: 4px;
+      }
+      .cv-page--evidence .platform-strip .cv-section__title { margin-bottom: 3px; font-size: 7pt; }
+      .cv-page--evidence .platform-strip__intro { display: none; }
+      .cv-page--evidence .platform-strip__group strong { margin-bottom: 1px; font-size: 5.5pt; }
+      .cv-page--evidence .platform-strip__groups { gap: 1px 6px; }
+      .cv-page--evidence .platform-strip__chips { gap: 2px; }
+      .cv-page--evidence .platform-chip { font-size: 5pt; padding: 0 2px; }
+      .cv-page--evidence .proof-closer { margin-top: 5px; padding-top: 4px; }
+      .cv-page--evidence .proof-closer .cv-section__title { margin-bottom: 3px; font-size: 7pt; }
+      .cv-page--evidence .proof-closer__text { font-size: 6pt; line-height: 1.28; }
+      .cv__aside, .proof-card, .proof-slot, .proof-cluster, .platform-chip {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ═══════════════ PAGE 1 — RESUME ═══════════════ -->
+  <article class="cv-page cv-page--resume">
+    <div class="cv-page__inner">
+
+      <header class="cv__header">
+        <h1 class="cv__name">Tobi Bey</h1>
+        <p class="cv__tagline">Expert iOS Engineer · React Native · Native Modules · Xcode &amp; App Store Connect</p>
+      </header>
+
+      <div class="cv__grid">
+
+        <main class="cv__main">
+          <section class="cv-section">
+            <h2 class="cv-section__title">Technical Stack</h2>
+            <p class="cv-stack__intro">Core platforms, tools, and ecosystems I work across in production mobile delivery.</p>
+            <div class="cv-stack__grid">
+              <span class="cv-stack__badge"><img src="https://img.shields.io/badge/React%20Native-F5F5F5?style=flat-square&logo=react&logoColor=111111&labelColor=F5F5F5" alt="React Native" /></span>
+              <span class="cv-stack__badge"><img src="https://img.shields.io/badge/TypeScript-F5F5F5?style=flat-square&logo=typescript&logoColor=111111&labelColor=F5F5F5" alt="TypeScript" /></span>
+              <span class="cv-stack__badge"><img src="https://img.shields.io/badge/Xcode-F5F5F5?style=flat-square&logo=apple&logoColor=111111&labelColor=F5F5F5" alt="Xcode" /></span>
+              <span class="cv-stack__badge"><img src="https://img.shields.io/badge/Cloudflare-F5F5F5?style=flat-square&logo=cloudflare&logoColor=111111&labelColor=F5F5F5" alt="Cloudflare" /></span>
+              <span class="cv-stack__badge"><img src="https://img.shields.io/badge/Claude-F5F5F5?style=flat-square&logo=anthropic&logoColor=111111&labelColor=F5F5F5" alt="Claude" /></span>
+              <span class="cv-stack__badge"><img src="https://img.shields.io/badge/Cursor-F5F5F5?style=flat-square&logo=cursor&logoColor=111111&labelColor=F5F5F5" alt="Cursor" /></span>
+              <span class="cv-stack__badge cv-stack__badge--custom" aria-label="Codex">
+                <svg viewBox="0 0 24 24" fill="#111" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M22.282 9.821a5.985 5.985 0 0 0-.516-4.91 6.046 6.046 0 0 0-6.51-2.9A6.065 6.065 0 0 0 4.981 4.18a5.985 5.985 0 0 0-3.998 2.9 6.046 6.046 0 0 0 .743 7.097 5.98 5.98 0 0 0 .51 4.911 6.051 6.051 0 0 0 6.515 2.9A5.985 5.985 0 0 0 13.26 24a6.056 6.056 0 0 0 5.772-4.206 5.99 5.99 0 0 0 3.997-2.9 6.056 6.056 0 0 0-.747-7.073zM13.26 22.43a4.476 4.476 0 0 1-2.876-1.04l.141-.081 4.779-2.758a.795.795 0 0 0 .392-.681v-6.737l2.02 1.168a.071.071 0 0 1 .038.052v5.583a4.504 4.504 0 0 1-4.494 4.494zM3.6 18.304a4.47 4.47 0 0 1-.535-3.014l.142.085 4.783 2.759a.771.771 0 0 0 .78 0l5.843-3.369v2.332a.08.08 0 0 1-.033.062L9.74 19.95a4.5 4.5 0 0 1-6.14-1.646zM2.34 7.896a4.485 4.485 0 0 1 2.366-1.973V11.6a.766.766 0 0 0 .388.676l5.815 3.355-2.02 1.168a.076.076 0 0 1-.071 0l-4.83-2.786A4.504 4.504 0 0 1 2.34 7.872zm16.597 3.855l-5.833-3.387L15.119 7.2a.076.076 0 0 1 .071 0l4.83 2.791a4.494 4.494 0 0 1-.676 8.105v-5.678a.79.79 0 0 0-.407-.667zm2.01-3.023l-.141-.085-4.774-2.782a.776.776 0 0 0-.785 0L9.409 9.23V6.897a.066.066 0 0 1 .028-.061l4.83-2.787a4.5 4.5 0 0 1 6.68 4.66zm-12.64 4.135l-2.02-1.163a.08.08 0 0 1-.038-.057V6.075a4.5 4.5 0 0 1 7.375-3.453l-.142.08-4.778 2.758a.795.795 0 0 0-.393.681l-.004 6.748z"/></svg>
+                Codex
+              </span>
+              <span class="cv-stack__badge"><img src="https://img.shields.io/badge/DeepSeek-F5F5F5?style=flat-square&logo=deepseek&logoColor=111111&labelColor=F5F5F5" alt="DeepSeek" /></span>
+              <span class="cv-stack__badge"><img src="https://img.shields.io/badge/App%20Store-F5F5F5?style=flat-square&logo=appstore&logoColor=111111&labelColor=F5F5F5" alt="App Store" /></span>
+              <span class="cv-stack__badge"><img src="https://img.shields.io/badge/Play%20Store-F5F5F5?style=flat-square&logo=googleplay&logoColor=111111&labelColor=F5F5F5" alt="Play Store" /></span>
+            </div>
+          </section>
+
+          <section class="cv-section">
+            <h2 class="cv-section__title">Experience</h2>
+
+            <article class="cv-role">
+              <div class="cv-role__head">
+                <h3 class="cv-role__title">Senior Software Engineer</h3>
+                <time class="cv-role__date">Apr 2024 – Present</time>
+              </div>
+              <p class="cv-role__org">App Next Day · Remote</p>
+              <ul class="cv-role__list">
+                <li>Founded a mobile product company focused on rapid native iOS app delivery — from customer brief to shipped Xcode project.</li>
+                <li>Built <strong>XC Wizard</strong>: production macOS/iOS platform in Swift, TypeScript, and Node.js (SwiftUI, Next.js, Cloudflare Workers + PostgreSQL).</li>
+                <li>Shipped Sign in with Apple, StoreKit 2 IAP, APNs push, real-time WebSockets, and App Store Connect automation.</li>
+              </ul>
+            </article>
+
+            <article class="cv-role">
+              <div class="cv-role__head">
+                <h3 class="cv-role__title">Senior Software Engineer</h3>
+                <time class="cv-role__date">May 2023 – Apr 2024</time>
+              </div>
+              <p class="cv-role__org">Zapp. · London</p>
+              <ul class="cv-role__list">
+                <li>Led architectural discussions around mobile infrastructure and code review for consistency across the codebase.</li>
+                <li>Led a mid-size remote team to implement an entirely new design standard.</li>
+                <li>Translated business requirements into development roadmaps and timelines.</li>
+                <li>Built CI/CD pipelines and testing frameworks with CircleCI.</li>
+              </ul>
+            </article>
+
+            <article class="cv-role">
+              <div class="cv-role__head">
+                <h3 class="cv-role__title">Software Engineer</h3>
+                <time class="cv-role__date">Mar 2021 – Apr 2023</time>
+              </div>
+              <p class="cv-role__org">Train Effective · London</p>
+              <ul class="cv-role__list">
+                <li>Complete mobile app redesign — built a <strong>component library</strong> in React Native and NPM while keeping legacy designs in sync.</li>
+                <li>Analytics dashboard: React/Bootstrap front-end, Node.js back-end.</li>
+                <li>Maintained legacy mobile app in React Native and Node.js.</li>
+                <li>Integrated Firebase, ElasticSearch, Algolia, Stripe, Mailchimp, and SAML.</li>
+              </ul>
+            </article>
+
+            <article class="cv-role">
+              <div class="cv-role__head">
+                <h3 class="cv-role__title">Summer Technology Analyst</h3>
+                <time class="cv-role__date">Jun 2019 – Aug 2019</time>
+              </div>
+              <p class="cv-role__org">Barclays · London</p>
+              <ul class="cv-role__list">
+                <li>Implemented user preferences in Java on legacy banking systems; prepared Jira/Kanban workflow and release process.</li>
+              </ul>
+            </article>
+
+            <article class="cv-role">
+              <div class="cv-role__head">
+                <h3 class="cv-role__title">Spring Technology Analyst</h3>
+                <time class="cv-role__date">Aug 2018 – Sep 2018</time>
+              </div>
+              <p class="cv-role__org">Morgan Stanley · London</p>
+              <ul class="cv-role__list">
+                <li>Designed a trade-recommendation system for B2B clients in a collaborative team setting.</li>
+                <li>Applied NLP and AI techniques to generate trade ideas from market data.</li>
+              </ul>
+            </article>
+          </section>
+
+          <section class="cv-section">
+            <h2 class="cv-section__title">Education</h2>
+            <div class="cv-edu">
+              <p class="cv-edu__degree">BSc Engineering (2:1)</p>
+              <p class="cv-edu__school">University of Warwick · 2017 – 2020</p>
+              <p class="cv-edu__detail">First-year performance: First Class</p>
+            </div>
+            <div class="cv-edu">
+              <p class="cv-edu__degree">A Levels</p>
+              <p class="cv-edu__subjects">Mathematics (A) <span class="cv-edu__sep">·</span> Physics (A) <span class="cv-edu__sep">·</span> Philosophy (A)</p>
+              <p class="cv-edu__school">Sharnbrook Upper School · 2015 – 2017</p>
+              <p class="cv-edu__detail">Philosophy performance: 194/200 UMS</p>
+            </div>
+          </section>
+        </main>
+
+        <aside class="cv__aside">
+          <div class="cv-aside-block">
+            <h2 class="cv-section__title">Contact</h2>
+            <p class="cv-contact__item">London, United Kingdom</p>
+            <p class="cv-contact__item"><a href="tel:+447494214773">+44 7494 214 773</a></p>
+            <p class="cv-contact__item"><a href="mailto:tshbey@hotmail.com">tshbey@hotmail.com</a></p>
+            <p class="cv-contact__item"><a href="tobi-bey-cv.pdf">Download PDF</a></p>
+            <p class="cv-contact__item"><a href="https://uk.linkedin.com/in/tobi-shitta-bey-4a9402102">linkedin.com/in/tobi-shitta-bey</a></p>
+            <p class="cv-contact__item"><a href="https://xcwizard.com">xcwizard.com</a></p>
+          </div>
+
+          <div class="cv-aside-block">
+            <h2 class="cv-section__title">Profile</h2>
+            <p class="cv-profile">Expert iOS engineer with 8+ years shipping mobile products across React Native and native Apple tooling. Built across Train Effective, Zapp, and App Next Day, with deep release, platform, and integration expertise beyond the JavaScript layer.</p>
+          </div>
+
+          <div class="cv-aside-block">
+            <h2 class="cv-section__title">Platforms</h2>
+            <div class="cv-skill">
+              <span class="cv-skill__label">Build Targets</span>
+              <span class="cv-skill__value">iOS, Android, watchOS, visionOS</span>
+            </div>
+            <div class="cv-skill">
+              <span class="cv-skill__label">Native Depth</span>
+              <span class="cv-skill__value">Swift native modules, App Clips, Widgets, APNs, Sign in with Apple, StoreKit, code signing</span>
+            </div>
+          </div>
+
+          <div class="cv-aside-block">
+            <h2 class="cv-section__title">Core Skills</h2>
+            <div class="cv-skill">
+              <span class="cv-skill__label">Mobile</span>
+              <span class="cv-skill__value">React Native, TypeScript, JavaScript, Expo</span>
+            </div>
+            <div class="cv-skill">
+              <span class="cv-skill__label">Apple</span>
+              <span class="cv-skill__value">Swift, SwiftUI, Xcode, StoreKit, Sign in with Apple, APNs</span>
+            </div>
+            <div class="cv-skill">
+              <span class="cv-skill__label">Backend</span>
+              <span class="cv-skill__value">Node.js, GraphQL, REST, Firebase</span>
+            </div>
+            <div class="cv-skill">
+              <span class="cv-skill__label">Tools</span>
+              <span class="cv-skill__value">CircleCI, Sentry, Stripe, Algolia, Git, App Store Connect</span>
+            </div>
+          </div>
+
+          <div class="cv-aside-block">
+            <h2 class="cv-section__title">Highlights</h2>
+            <div class="cv-skill">
+              <span class="cv-skill__value">• 3 React Native apps live on the App Store</span>
+            </div>
+            <div class="cv-skill">
+              <span class="cv-skill__value">• Built &amp; launched a full mobile product platform solo</span>
+            </div>
+            <div class="cv-skill">
+              <span class="cv-skill__value">• Component library powering a full app redesign</span>
+            </div>
+            <div class="cv-skill">
+              <span class="cv-skill__value">• Native module work and end-to-end App Store &amp; Play Store release ownership</span>
+            </div>
+          </div>
+        </aside>
+      </div>
+
+      <section class="cv-section cv-extra" aria-label="Extracurriculars">
+        <h2 class="cv-section__title">Extracurriculars</h2>
+        <div class="cv-extra__grid">
+
+          <article class="cv-extra__item">
+            <div class="cv-extra__head">
+              <h3 class="cv-extra__title">Apple Developer Community</h3>
+              <span class="cv-extra__date">2019 – Present</span>
+            </div>
+            <p class="cv-extra__desc">WWDC annually; early SwiftUI, StoreKit 2, and SIWA in production.</p>
+          </article>
+
+          <article class="cv-extra__item">
+            <div class="cv-extra__head">
+              <h3 class="cv-extra__title">Warwick Engineering Society</h3>
+              <span class="cv-extra__date">2017 – 2020</span>
+            </div>
+            <p class="cv-extra__desc">Hackathons, bridge-building comps, rapid prototyping nights.</p>
+          </article>
+
+          <article class="cv-extra__item">
+            <div class="cv-extra__head">
+              <h3 class="cv-extra__title">Indie App Builder</h3>
+              <span class="cv-extra__date">Ongoing</span>
+            </div>
+            <p class="cv-extra__desc">Solo <strong>TrakStar Music</strong> — React Native, design, App Store release.</p>
+          </article>
+
+        </div>
+      </section>
+    </div>
+  </article>
+
+  <!-- ═══════════════ PAGE 2 — PROOF OF WORK ═══════════════ -->
+  <article class="cv-page cv-page--evidence">
+    <div class="cv-page__inner">
+
+      <header class="evidence__header">
+        <h1 class="evidence__title">Proof of Work</h1>
+        <span class="evidence__name">Tobi Bey · tshbey@hotmail.com</span>
+      </header>
+
+      <section class="proof-masonry" aria-label="Shipped products">
+
+        <!-- XC Wizard — full-width MacBook hero -->
+        <article class="proof-card proof-hero" data-showcase="platform">
+          <figure class="proof-card__media">
+            <div class="macbook-mockup" aria-hidden="true">
+              <div class="macbook-mockup__device">
+                <div class="macbook-mockup__lid">
+                  <div class="macbook-mockup__bezel">
+                    <div class="macbook-mockup__camera-bar"><span class="macbook-mockup__camera"></span></div>
+                    <img src="assets/xcwizard.png" alt="XC Wizard — Third-party APIs panel with live iPhone simulator" class="proof-card__img" />
+                  </div>
+                </div>
+                <div class="macbook-mockup__base"></div>
+              </div>
+            </div>
+          </figure>
+          <div class="proof-card__body">
+            <div class="proof-card__head">
+              <h2 class="proof-card__name">XC Wizard</h2>
+              <span class="proof-card__tag">Platform</span>
+            </div>
+            <ul class="proof-card__points">
+              <li>Native app factory — SwiftUI macOS, Node.js, per-app cloud backends</li>
+              <li>SIWA, StoreKit 2, APNs, ASC automation, Stripe billing</li>
+            </ul>
+            <a class="proof-card__link" href="https://xcwizard.com">xcwizard.com</a>
+          </div>
+        </article>
+
+        <!-- 6×2 matrix: row 1 = TrakStar desc + images, row 2 = TrakStar images + descriptions -->
+        <div class="proof-matrix" aria-label="Shipped products">
+
+          <div class="proof-matrix__cell proof-matrix__cell--text">
+            <div class="proof-slot__head">
+              <h3 class="proof-slot__name">TrakStar Music</h3>
+              <span class="proof-slot__tag">React Native</span>
+            </div>
+            <ul class="proof-slot__points">
+              <li>Solo build · Spotify + Apple Music APIs</li>
+              <li>Now playing, queue, App Store release</li>
+            </ul>
+            <a class="proof-slot__link" href="https://apps.apple.com/gb/app/trakstar/id1636470089">App Store ↗</a>
+          </div>
+
+          <div class="proof-matrix__cell proof-matrix__cell--img">
+            <img src="assets/trakstar-music.png" alt="TrakStar Music — playlist" />
+          </div>
+          <div class="proof-matrix__cell proof-matrix__cell--img">
+            <img src="assets/tobiisking.png" alt="Zapp — home and merchandising" />
+          </div>
+          <div class="proof-matrix__cell proof-matrix__cell--img">
+            <img src="assets/zappbout.png" alt="Zapp Boutique — luxury category grid" />
+          </div>
+          <div class="proof-matrix__cell proof-matrix__cell--img">
+            <img src="assets/te-paywall.png" alt="Train Effective — subscription paywall" />
+          </div>
+          <div class="proof-matrix__cell proof-matrix__cell--img">
+            <img src="assets/tepaywalliap.png" alt="Train Effective — IAP sandbox" />
+          </div>
+
+          <div class="proof-matrix__cell proof-matrix__cell--img">
+            <img src="assets/trakstar2.png" alt="TrakStar Music — library" />
+          </div>
+          <div class="proof-matrix__cell proof-matrix__cell--img">
+            <img src="assets/trakstar3.png" alt="TrakStar Music — now playing" />
+          </div>
+
+          <div class="proof-matrix__cell proof-matrix__cell--text proof-matrix__cell--span2">
+            <div class="proof-slot__head">
+              <h3 class="proof-slot__name">Zapp</h3>
+              <span class="proof-slot__tag">Senior Engineer</span>
+            </div>
+            <ul class="proof-slot__points">
+              <li>Mobile infra + redesign</li>
+              <li>CI/CD, release systems</li>
+            </ul>
+            <a class="proof-slot__link" href="https://www.zapp.com">zapp.com</a>
+          </div>
+
+          <div class="proof-matrix__cell proof-matrix__cell--text proof-matrix__cell--span2">
+            <div class="proof-slot__head">
+              <h3 class="proof-slot__name">Train Effective</h3>
+              <span class="proof-slot__tag">React Native</span>
+            </div>
+            <ul class="proof-slot__points">
+              <li>StoreKit 2 subscriptions</li>
+              <li>In-app purchase flow</li>
+            </ul>
+            <a class="proof-slot__link" href="https://www.traineffective.com">traineffective.com</a>
+          </div>
+
+        </div>
+
+      </section>
+
+      <section class="platform-strip" aria-label="Platform delivery depth">
+        <h2 class="cv-section__title">Platform Delivery</h2>
+        <p class="platform-strip__intro">Beyond React Native — native modules, release systems, and store distribution I own end-to-end.</p>
+        <div class="platform-strip__groups">
+          <div class="platform-strip__group">
+            <strong>Apple</strong>
+            <div class="platform-strip__chips">
+              <span class="platform-chip">Xcode</span>
+              <span class="platform-chip">App Store Connect</span>
+              <span class="platform-chip">APNs</span>
+              <span class="platform-chip">Sign in with Apple</span>
+              <span class="platform-chip">StoreKit 2</span>
+              <span class="platform-chip">Widgets</span>
+              <span class="platform-chip">App Clips</span>
+              <span class="platform-chip">Native modules</span>
+            </div>
+          </div>
+          <div class="platform-strip__group">
+            <strong>Cross-platform</strong>
+            <div class="platform-strip__chips">
+              <span class="platform-chip">React Native</span>
+              <span class="platform-chip">CircleCI</span>
+              <span class="platform-chip">Android Studio</span>
+              <span class="platform-chip">Play Console</span>
+              <span class="platform-chip">Code signing</span>
+              <span class="platform-chip">TestFlight</span>
+              <span class="platform-chip">Sentry</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="proof-matrix" aria-label="More shipped products">
+
+        <div class="proof-matrix__cell proof-matrix__cell--img">
+          <img src="assets/tobiisking.png" alt="Zapp — home and merchandising" />
+        </div>
+        <div class="proof-matrix__cell proof-matrix__cell--img">
+          <img src="assets/zappbout.png" alt="Zapp Boutique — luxury category grid" />
+        </div>
+        <div class="proof-matrix__cell proof-matrix__cell--img">
+          <img src="assets/te-paywall.png" alt="Train Effective — subscription paywall" />
+        </div>
+        <div class="proof-matrix__cell proof-matrix__cell--img">
+          <img src="assets/tepaywalliap.png" alt="Train Effective — IAP sandbox" />
+        </div>
+        <div class="proof-matrix__cell proof-matrix__cell--img">
+          <img src="assets/trakstar-music.png" alt="TrakStar Music — playlist" />
+        </div>
+        <div class="proof-matrix__cell proof-matrix__cell--img">
+          <img src="assets/trakstar3.png" alt="TrakStar Music — now playing" />
+        </div>
+
+        <div class="proof-matrix__cell proof-matrix__cell--text">
+          <div class="proof-slot__head">
+            <h3 class="proof-slot__name">Zapp</h3>
+            <span class="proof-slot__tag">Senior Engineer</span>
+          </div>
+          <ul class="proof-slot__points">
+            <li>Mobile infra + redesign</li>
+          </ul>
+          <a class="proof-slot__link" href="https://www.zapp.com">zapp.com</a>
+        </div>
+
+        <div class="proof-matrix__cell proof-matrix__cell--text">
+          <div class="proof-slot__head">
+            <h3 class="proof-slot__name">Zapp</h3>
+            <span class="proof-slot__tag">Senior Engineer</span>
+          </div>
+          <ul class="proof-slot__points">
+            <li>CI/CD, release systems</li>
+          </ul>
+          <a class="proof-slot__link" href="https://www.zapp.com">zapp.com</a>
+        </div>
+
+        <div class="proof-matrix__cell proof-matrix__cell--text">
+          <div class="proof-slot__head">
+            <h3 class="proof-slot__name">Train Effective</h3>
+            <span class="proof-slot__tag">React Native</span>
+          </div>
+          <ul class="proof-slot__points">
+            <li>StoreKit 2 subscriptions</li>
+          </ul>
+          <a class="proof-slot__link" href="https://www.traineffective.com">traineffective.com</a>
+        </div>
+
+        <div class="proof-matrix__cell proof-matrix__cell--text">
+          <div class="proof-slot__head">
+            <h3 class="proof-slot__name">Train Effective</h3>
+            <span class="proof-slot__tag">React Native</span>
+          </div>
+          <ul class="proof-slot__points">
+            <li>In-app purchase flow</li>
+          </ul>
+          <a class="proof-slot__link" href="https://www.traineffective.com">traineffective.com</a>
+        </div>
+
+        <div class="proof-matrix__cell proof-matrix__cell--text">
+          <div class="proof-slot__head">
+            <h3 class="proof-slot__name">TrakStar Music</h3>
+            <span class="proof-slot__tag">React Native</span>
+          </div>
+          <ul class="proof-slot__points">
+            <li>Solo build, App Store</li>
+          </ul>
+          <a class="proof-slot__link" href="https://apps.apple.com/gb/app/trakstar/id1636470089">App Store ↗</a>
+        </div>
+
+        <div class="proof-matrix__cell proof-matrix__cell--text">
+          <div class="proof-slot__head">
+            <h3 class="proof-slot__name">TrakStar Music</h3>
+            <span class="proof-slot__tag">React Native</span>
+          </div>
+          <ul class="proof-slot__points">
+            <li>Now playing + queue</li>
+          </ul>
+          <a class="proof-slot__link" href="https://apps.apple.com/gb/app/trakstar/id1636470089">App Store ↗</a>
+        </div>
+
+      </div>
+
+      <section class="proof-closer" aria-label="Closing statement">
+        <h2 class="cv-section__title">In Short</h2>
+        <p class="proof-closer__text">I’m an iOS engineer who ships — from React Native product work at Zapp and Train Effective to building XC Wizard and TrakStar solo. I own the full stack around mobile: native modules, billing, App Store Connect, and store release. Open to senior iOS roles where someone needs to take a product over the line.</p>
+      </section>
+
+    </div>
+  </article>
+
+</body>
+</html>
