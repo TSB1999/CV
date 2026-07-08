@@ -734,7 +734,7 @@
     }
 
     .proof-hero .proof-card__link {
-      margin-top: 8px;
+      margin-top: 12px;
     }
 
     /* Closing statement — page 2 sign-off */
@@ -840,7 +840,7 @@
       .cv-page--evidence .proof-hero {
         grid-template-columns: repeat(6, minmax(0, 1fr));
         gap: 2px;
-        height: 82mm;
+        height: 79mm;
         margin-bottom: 0;
         align-items: end;
       }
@@ -875,7 +875,7 @@
       .cv-page--evidence .proof-hero .proof-card__img {
         width: 112%;
         max-width: none;
-        max-height: calc(82mm / 1.5);
+        max-height: calc(79mm / 1.5);
         height: auto;
         margin-inline: 0;
         object-fit: contain;
@@ -888,7 +888,7 @@
       .cv-page--evidence .proof-card__points { margin-bottom: 1px; padding-left: 0; }
       .cv-page--evidence .proof-card__points li { font-size: 7.1pt; line-height: 1.28; margin-bottom: 0; }
       .cv-page--evidence .proof-card__link { font-size: 6.6pt; }
-      .cv-page--evidence .proof-hero .proof-card__link { margin-top: 5px; }
+      .cv-page--evidence .proof-hero .proof-card__link { margin-top: 9px; }
       .cv-page--evidence .proof-matrix {
         --proof-image-row: 1.22fr;
         --proof-text-row: 0.78fr;
@@ -900,11 +900,11 @@
         grid-template-rows: var(--proof-image-row) var(--proof-text-row);
       }
       .cv-page--evidence .proof-matrix--hero-followup {
-        margin-top: 0;
+        margin-top: -1.5mm;
         margin-bottom: 0;
         height: 76mm;
-        --proof-image-row: 1.5fr;
-        --proof-text-row: 0.62fr;
+        --proof-image-row: 1.46fr;
+        --proof-text-row: 0.66fr;
         gap: 1px 3px;
         overflow: hidden;
       }
@@ -957,7 +957,12 @@
         align-content: start;
         overflow: hidden;
       }
-      .cv-page--evidence .proof-matrix--hero-followup .proof-matrix__cell--text,
+      .cv-page--evidence .proof-matrix--hero-followup .proof-matrix__cell--text {
+        grid-template-rows: auto auto auto;
+        align-content: start;
+        padding: 2px 4px 8px;
+        overflow: visible;
+      }
       .cv-page--evidence .proof-matrix--lower .proof-matrix__cell--text {
         grid-template-rows: auto auto auto;
         align-content: start;
@@ -969,7 +974,10 @@
         font-size: 7pt;
         line-height: 1.2;
       }
-      .cv-page--evidence .proof-matrix--hero-followup .proof-slot__link,
+      .cv-page--evidence .proof-matrix--hero-followup .proof-slot__link {
+        margin-top: 2px;
+        line-height: 1.35;
+      }
       .cv-page--evidence .proof-matrix--lower .proof-slot__link {
         margin-top: 2px;
       }
@@ -1010,8 +1018,8 @@
       .cv-page--evidence .proof-matrix .proof-slot__link { font-size: 6.6pt; }
       .cv-page--evidence .proof-matrix__cell--text .proof-slot__link { margin-top: 4px; }
       .cv-page--evidence .proof-closer {
-        margin-top: 18px;
-        padding-top: 10px;
+        margin-top: 24px;
+        padding-top: 12px;
         break-inside: avoid;
         page-break-inside: avoid;
       }
@@ -1344,7 +1352,7 @@
               <li>Owned mobile integration with ops and external ad-tech team</li>
               <li>High-frequency commerce app shipping under live demand</li>
             </ul>
-            <a class="proof-slot__link" href="https://www.zapp.com">zapp.com</a>
+            <a class="proof-slot__link" href="https://justzapp.com">justzapp.com</a>
           </div>
 
           <div class="proof-matrix__cell proof-matrix__cell--text proof-matrix__cell--span3">
