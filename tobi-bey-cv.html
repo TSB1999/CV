@@ -394,10 +394,10 @@
     }
 
     .proof-hero .proof-card__media {
-      grid-column: 1 / 5;
+      grid-column: 1 / 4;
       display: flex;
       align-items: flex-end;
-      justify-content: flex-start;
+      justify-content: center;
       padding: 0;
       background: transparent;
       min-width: 0;
@@ -405,7 +405,6 @@
       overflow: visible;
       position: relative;
       z-index: 1;
-      margin-left: -4px;
     }
 
     .proof-hero .proof-card__body {
@@ -422,13 +421,13 @@
 
     .proof-hero .proof-card__img {
       display: block;
-      width: 118%;
+      width: 112%;
       max-width: none;
       height: auto;
       object-fit: contain;
-      object-position: left bottom;
+      object-position: center bottom;
       transform: scale(1.5);
-      transform-origin: left bottom;
+      transform-origin: center bottom;
     }
 
     /* 4-column phone grid */
@@ -734,6 +733,10 @@
       display: inline-block;
     }
 
+    .proof-hero .proof-card__link {
+      margin-top: 8px;
+    }
+
     /* Closing statement — page 2 sign-off */
     .proof-closer {
       padding-top: 12px;
@@ -750,6 +753,14 @@
       color: var(--g800);
       line-height: 1.42;
       max-width: 95%;
+    }
+
+    .cv-footer__copy {
+      margin-top: 10px;
+      font-size: 6.5pt;
+      color: var(--g400);
+      text-align: center;
+      letter-spacing: 0.03em;
     }
 
     /* ─── Print ──────────────────────────────────────────── */
@@ -817,6 +828,9 @@
       .cv-extra__date { font-size: 7.5pt; }
       .cv-extra__desc { font-size: 7.3pt; line-height: 1.22; }
       .cv-page--evidence .cv-page__inner {
+        display: flex;
+        flex-direction: column;
+        min-height: 281mm;
         padding-top: 2px;
       }
       .cv-page--evidence .cv__header { margin-bottom: 2px; padding-bottom: 2px; }
@@ -831,16 +845,17 @@
         align-items: end;
       }
       .cv-page--evidence .proof-hero .proof-card__media {
-        grid-column: 1 / 5;
+        grid-column: 1 / 4;
         grid-row: 1;
         padding: 0;
         min-width: 0;
-        max-width: none;
-        width: calc(100% + 2mm);
+        max-width: 100%;
+        width: 100%;
         height: 100%;
-        margin-left: -2mm;
+        margin-left: 0;
         display: flex;
         align-items: flex-end;
+        justify-content: center;
         overflow: visible;
         position: relative;
         z-index: 1;
@@ -858,21 +873,22 @@
         z-index: 2;
       }
       .cv-page--evidence .proof-hero .proof-card__img {
-        width: 118%;
+        width: 112%;
         max-width: none;
         max-height: calc(82mm / 1.5);
         height: auto;
         margin-inline: 0;
         object-fit: contain;
-        object-position: left bottom;
+        object-position: center bottom;
         transform: scale(1.5);
-        transform-origin: left bottom;
+        transform-origin: center bottom;
       }
       .cv-page--evidence .proof-card__head { margin-bottom: 1px; }
       .cv-page--evidence .proof-card__name { font-size: 8.8pt; }
       .cv-page--evidence .proof-card__points { margin-bottom: 1px; padding-left: 0; }
       .cv-page--evidence .proof-card__points li { font-size: 7.1pt; line-height: 1.28; margin-bottom: 0; }
       .cv-page--evidence .proof-card__link { font-size: 6.6pt; }
+      .cv-page--evidence .proof-hero .proof-card__link { margin-top: 5px; }
       .cv-page--evidence .proof-matrix {
         --proof-image-row: 1.22fr;
         --proof-text-row: 0.78fr;
@@ -893,9 +909,9 @@
         overflow: hidden;
       }
       .cv-page--evidence .proof-matrix--lower {
-        margin-top: 0.5mm;
+        margin-top: 6mm;
         margin-bottom: 0;
-        height: 76mm;
+        height: 74mm;
         --proof-image-row: 1.52fr;
         --proof-text-row: 0.66fr;
         gap: 1px 3px;
@@ -980,12 +996,8 @@
         margin-bottom: 0;
       }
       .cv-page--evidence .proof-matrix--lower .proof-matrix__cell--trakstar .proof-slot__points li {
-        font-size: 6.85pt;
-        line-height: 1.16;
-      }
-      .cv-page--evidence .proof-matrix--lower .proof-matrix__cell--trakstar .proof-slot__name--compact {
-        font-size: 7.2pt;
-        line-height: 1.1;
+        font-size: 7.3pt;
+        line-height: 1.28;
       }
       .cv-page--evidence .proof-matrix--lower .proof-matrix__cell--trakstar .proof-slot__link {
         margin-top: 1px;
@@ -998,13 +1010,18 @@
       .cv-page--evidence .proof-matrix .proof-slot__link { font-size: 6.6pt; }
       .cv-page--evidence .proof-matrix__cell--text .proof-slot__link { margin-top: 4px; }
       .cv-page--evidence .proof-closer {
-        margin-top: 3px;
-        padding-top: 4px;
+        margin-top: 18px;
+        padding-top: 10px;
         break-inside: avoid;
         page-break-inside: avoid;
       }
       .cv-page--evidence .proof-closer__text { font-size: 7pt; line-height: 1.32; }
       .cv-page--evidence .proof-closer .cv-section__title { margin-bottom: 2px; font-size: 7.4pt; }
+      .cv-page--evidence .cv-footer__copy {
+        margin-top: auto;
+        padding-top: 6px;
+        font-size: 6.1pt;
+      }
       .cv__aside, .proof-card, .proof-slot, .proof-cluster {
         -webkit-print-color-adjust: exact;
         print-color-adjust: exact;
@@ -1320,7 +1337,7 @@
           <div class="proof-matrix__cell proof-matrix__cell--text proof-matrix__cell--span3 proof-matrix__cell--divider-both">
             <div class="proof-slot__head">
               <h3 class="proof-slot__name">Zapp</h3>
-              <span class="proof-slot__tag">Premium Instant Delivery</span>
+              <span class="proof-slot__tag">Premium Instant Delivery App</span>
             </div>
             <ul class="proof-slot__points">
               <li>Citrus Ads — sponsored products and banner placements</li>
@@ -1370,13 +1387,12 @@
 
         <div class="proof-matrix__cell proof-matrix__cell--text proof-matrix__cell--span2 proof-matrix__cell--divider-right proof-matrix__cell--trakstar">
           <div class="proof-slot__head">
-            <h3 class="proof-slot__name proof-slot__name--compact">TrakStar — Alternative Music Streaming Platform</h3>
+            <h3 class="proof-slot__name">TrakStar Music</h3>
             <span class="proof-slot__tag">100 Million songs · React Native</span>
           </div>
           <ul class="proof-slot__points">
             <li>Maps ISRC to HTML5 PiP for ad-free playback</li>
             <li>UI designed by eye — spacing, shadow, radius</li>
-            <li>£80/month running cost</li>
           </ul>
           <a class="proof-slot__link" href="https://drive.google.com/file/d/1Zxq6hOuU8FnzSexbLM2VKcS9zozZ-Zqx/view?usp=drive_link">Demo ↗</a>
         </div>
@@ -1411,6 +1427,8 @@
         <h2 class="cv-section__title">In Short</h2>
         <p class="proof-closer__text">I’m an iOS engineer who ships — from React Native product work at Zapp and Train Effective to building Xcode Wizard and TrakStar solo. I’m used to owning large, complex work end to end: native modules, billing, App Store Connect, store release, and the Apple ecosystem details that make delivery work, including certificates, provisioning, and app signing. Open to senior or staff engineer roles, whether that means driving critical work individually or leading teams and technical direction.</p>
       </section>
+
+      <p class="cv-footer__copy">© 2026 Tobi Bey</p>
 
     </div>
   </article>
