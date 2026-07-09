@@ -851,6 +851,7 @@
         grid-template-columns: repeat(6, minmax(0, 1fr));
         gap: 2px;
         height: 79mm;
+        margin-top: 3mm;
         margin-bottom: 0;
         align-items: end;
       }
@@ -910,7 +911,7 @@
         grid-template-rows: var(--proof-image-row) var(--proof-text-row);
       }
       .cv-page--evidence .proof-matrix--hero-followup {
-        margin-top: -1.5mm;
+        margin-top: 0;
         margin-bottom: 0;
         height: 76mm;
         --proof-image-row: 1.46fr;
@@ -931,6 +932,9 @@
       .cv-page--evidence .proof-matrix--lower .proof-matrix__cell--img {
         overflow: hidden;
         padding: 0 1px;
+      }
+      .cv-page--evidence .proof-matrix--hero-followup .proof-matrix__cell--img {
+        padding-top: 0.5mm;
       }
       .cv-page--evidence .proof-matrix--hero-followup .proof-matrix__cell--img:first-child,
       .cv-page--evidence .proof-matrix--lower .proof-matrix__cell--img:first-child {
@@ -1018,8 +1022,8 @@
       .cv-page--evidence .proof-matrix .proof-slot__link { font-size: 6.6pt; }
       .cv-page--evidence .proof-matrix__cell--text .proof-slot__link { margin-top: 4px; }
       .cv-page--evidence .proof-closer {
-        margin-top: 24px;
-        padding-top: 12px;
+        margin-top: 6px;
+        padding-top: 0;
         break-inside: avoid;
         page-break-inside: avoid;
       }
@@ -1083,10 +1087,10 @@
               </div>
               <p class="cv-role__org">App Next Day · Remote</p>
               <ul class="cv-role__list">
-                <li>Built an <strong>iOS software factory</strong> — 1,500+ advanced Xcode projects, brief to shipped app in up to 24h.</li>
-                <li>Built <strong>Xcode Wizard</strong> in Swift, TypeScript, and Node.js: macOS SwiftUI client, agent pipeline, per-app cloud backends.</li>
-                <li>Full <strong>Apple ecosystem</strong>: SwiftUI, SIWA, StoreKit 2, Apple Pay, APNs, ASC automation, certificates, code signing.</li>
-                <li><strong>Cloudflare</strong> per app — Workers, Durable Objects, R2, Neon/PostgreSQL.</li>
+                <li>Built an <strong>iOS software factory</strong> with <strong>Xcode Wizard</strong> — Swift, TypeScript, and Node.js; 1,500+ Xcode projects, brief to shipped app in up to 24h.</li>
+                <li><strong>Agent orchestration</strong> — planner decomposes briefs into tasks, agents iteratively write and edit files, run integration tests and self-heal against the build before resolving to release.</li>
+                <li><strong>Apple ecosystem mastery</strong>: SwiftUI, SIWA, StoreKit 2, Apple Pay, APNs, ASC automation, signing, certificates, and alternative distribution/licensing paths.</li>
+                <li><strong>Cloudflare</strong> per app automation — Zones, Workers, Durable Objects, R2, Neon/PostgreSQL.</li>
               </ul>
             </article>
 
@@ -1097,8 +1101,8 @@
               </div>
               <p class="cv-role__org">Zapp · London</p>
               <ul class="cv-role__list">
-                <li>Owned end-to-end <strong>Citrus Ads</strong> — sponsored placements and banners; partnered with ops and Citrus's dev team; delivered solo.</li>
-                <li>Built impressions and engagement tracking for sponsored ad analytics.</li>
+                <li>Owned end-to-end <strong>Citrus Ads</strong> — sponsored placements and banners; partnered with ops and Citrus's dev team; delivered solo, with impressions and engagement tracking.</li>
+                <li>Wrote tests, shipped behind <strong>feature flags</strong> and A/B experiments, and shared release rota.</li>
                 <li>Daily <strong>GraphQL</strong> architecture with backend as fulfilment scaled; trusted engineer owning large codebase areas early.</li>
               </ul>
             </article>
@@ -1110,8 +1114,8 @@
               </div>
               <p class="cv-role__org">Train Effective · London</p>
               <ul class="cv-role__list">
-                <li>Mobile app redesign — React Native <strong>component library</strong> in Storybook for design–dev alignment.</li>
-                <li>Integrated <strong>Amplitude</strong> for product analytics — events, funnels, and feature instrumentation.</li>
+                <li>Mobile app redesign — translated UI specs from pixel mockups into density-aware React Native <strong>components</strong> in Storybook, bringing amazing user experiences to life.</li>
+                <li>Integrated <strong>Amplitude</strong> and <strong>BigQuery</strong> SQL for user journeys and product analytics — events, funnels, and feature instrumentation.</li>
                 <li>Trusted mobile team member; led developers across Tbilisi, Manila, Australia, and Russia.</li>
               </ul>
             </article>
@@ -1135,7 +1139,7 @@
               <p class="cv-role__org">Morgan Stanley · London</p>
               <ul class="cv-role__list">
                 <li>Designed a trade-recommendation system for B2B clients in a collaborative team setting.</li>
-                <li>Programme on cloud computing and AI including NLP — first exposure to natural language processing.</li>
+                <li>Programme on cloud computing and AI — exposure to natural language processing (NLP).</li>
               </ul>
             </article>
           </section>
@@ -1306,7 +1310,7 @@
           <div class="proof-card__body">
             <div class="proof-card__head">
               <h2 class="proof-card__name">Xcode Wizard</h2>
-              <span class="proof-card__tag">Platform</span>
+              <span class="proof-card__tag">Agentic App Factory</span>
             </div>
             <ul class="proof-card__points">
               <li>Native app factory — SwiftUI macOS, Node.js, per-app cloud backends</li>
@@ -1398,7 +1402,7 @@
           <span class="proof-slot__tag">100 Million songs · React Native</span>
           <ul class="proof-slot__points">
             <li>Maps ISRC to HTML5 PiP for ad-free playback</li>
-            <li>UI designed by eye — spacing, shadow, radius</li>
+            <li>Pre-AI UI designed by eye — spacing, shadow, radius</li>
           </ul>
           <a class="proof-slot__link" href="https://drive.google.com/file/d/1Zxq6hOuU8FnzSexbLM2VKcS9zozZ-Zqx/view?usp=drive_link">Demo ↗</a>
         </div>
@@ -1427,7 +1431,7 @@
 
       <section class="proof-closer" aria-label="Closing statement">
         <h2 class="cv-section__title">In Short</h2>
-        <p class="proof-closer__text">I’m an iOS engineer who ships — from React Native product work at Zapp and Train Effective to building Xcode Wizard and TrakStar solo. I’m used to owning large, complex work end to end: native modules, ad orchestration across impressions and engagements, A/B testing, billing, App Store Connect, store release, and the Apple ecosystem details that make delivery work — certificates, provisioning profiles, and app signing. Open to senior or staff engineer roles, whether that means driving critical work individually, leading teams and technical direction, or owning delivery end to end.</p>
+        <p class="proof-closer__text">I’m an iOS engineer who ships — from React Native product work at Zapp and Train Effective to architecting and building Xcode Wizard and TrakStar solo. I’m used to owning large, complex work end to end: native modules, ad orchestration across impressions and engagements, A/B testing, billing, App Store Connect, store release, and the Apple ecosystem details that make delivery work — certificates, provisioning profiles, and app signing. Open to senior or staff engineer roles, whether that means driving critical work individually, leading teams and technical direction, or owning delivery end to end.</p>
       </section>
 
       <p class="cv-footer__copy">© 2026 Tobi Bey</p>
