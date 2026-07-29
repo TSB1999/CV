@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Tobi Bey — CV</title>
+  <title>Kimi Sita — CV</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600&family=Source+Serif+4:opsz,wght@8..60,600&display=swap" rel="stylesheet" />
@@ -198,9 +198,23 @@
     }
 
     .cv-role__org {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: var(--space-sm);
       font-size: var(--text-small);
       color: var(--g600);
       margin: 1px 0 var(--space-xs);
+    }
+
+    .cv-role__org a {
+      color: var(--g600);
+      text-decoration: none;
+    }
+
+    .cv-role__loc {
+      color: var(--g400);
+      white-space: nowrap;
     }
 
     .cv-role__list { padding-left: 14px; }
@@ -1048,8 +1062,8 @@
     <div class="cv-page__inner">
 
       <header class="cv__header">
-        <h1 class="cv__name">Tobi Bey</h1>
-        <p class="cv__tagline">Expert iOS Engineer · React Native · Native Modules · Xcode · Apple Developer</p>
+        <h1 class="cv__name">Kimi Sita</h1>
+        <p class="cv__tagline">Senior React Native Engineer · Native Modules · Apple Developer · Google Developer</p>
       </header>
 
       <div class="cv__grid">
@@ -1064,6 +1078,7 @@
               <span class="cv-stack__badge"><img src="https://img.shields.io/badge/Xcode-F5F5F5?style=flat-square&logo=xcode&labelColor=F5F5F5" alt="Xcode" /></span>
               <span class="cv-stack__badge"><img src="https://img.shields.io/badge/Apple%20Developer-F5F5F5?style=flat-square&logo=apple&logoColor=111111&labelColor=F5F5F5" alt="Apple Developer" /></span>
               <span class="cv-stack__badge"><img src="https://img.shields.io/badge/Cloudflare-F5F5F5?style=flat-square&logo=cloudflare&labelColor=F5F5F5" alt="Cloudflare" /></span>
+              <span class="cv-stack__badge"><img src="https://img.shields.io/badge/Git-F5F5F5?style=flat-square&logo=git&logoColor=F05032&labelColor=F5F5F5" alt="Git" /></span>
               <span class="cv-stack__badge"><img src="https://img.shields.io/badge/Firebase-F5F5F5?style=flat-square&logo=firebase&logoColor=FFCA28&labelColor=F5F5F5" alt="Firebase" /></span>
               <span class="cv-stack__badge"><img src="https://img.shields.io/badge/GraphQL-F5F5F5?style=flat-square&logo=graphql&logoColor=E10098&labelColor=F5F5F5" alt="GraphQL" /></span>
               <span class="cv-stack__badge"><img src="https://img.shields.io/badge/Crashlytics-F5F5F5?style=flat-square&logo=firebase&logoColor=F57C00&labelColor=F5F5F5" alt="Crashlytics" /></span>
@@ -1082,12 +1097,15 @@
 
             <article class="cv-role">
               <div class="cv-role__head">
-                <h3 class="cv-role__title">Senior Software Engineer <span class="cv-role__focus">· Xcode · Apple Developer · Cloudflare · Agents</span></h3>
+                <h3 class="cv-role__title">Senior Software Engineer <span class="cv-role__focus">· Xcode · Artificial Intelligence · Cloudflare Workers</span></h3>
                 <time class="cv-role__date">Apr 2024 – Present</time>
               </div>
-              <p class="cv-role__org">App Next Day · Remote</p>
+              <div class="cv-role__org">
+                <p>XC Wizard · <a href="https://xcwizard.com">xcwizard.com</a></p>
+                <span class="cv-role__loc">Remote</span>
+              </div>
               <ul class="cv-role__list">
-                <li>Built an <strong>iOS software factory</strong> with <strong>Xcode Wizard</strong> — Swift, TypeScript, and Node.js; 1,500+ Xcode projects, brief to shipped app in up to 24h.</li>
+                <li>Built a fully automated <strong>iOS and watchOS</strong> software factory called <strong>Xcode Wizard</strong> — Swift, TypeScript, and Node.js; 1,500+ Xcode projects, brief to shipped app in up to 24h.</li>
                 <li><strong>Agent orchestration</strong> — planner decomposes briefs into tasks, agents iteratively write and edit files, run integration tests and self-heal against the build before resolving to release.</li>
                 <li><strong>Apple ecosystem mastery</strong>: SwiftUI, SIWA, StoreKit 2, Apple Pay, APNs, ASC automation, signing, certificates, and alternative distribution/licensing paths.</li>
                 <li><strong>Cloudflare</strong> per app automation — Zones, Workers, Durable Objects, R2, Neon/PostgreSQL.</li>
@@ -1099,7 +1117,10 @@
                 <h3 class="cv-role__title">Software Engineer <span class="cv-role__focus">· React Native · GraphQL · Citrus Ads</span></h3>
                 <time class="cv-role__date">May 2023 – Apr 2024</time>
               </div>
-              <p class="cv-role__org">Zapp · London</p>
+              <div class="cv-role__org">
+                <p>Zapp · <a href="https://justzapp.com">justzapp.com</a></p>
+                <span class="cv-role__loc">Belgravia, London</span>
+              </div>
               <ul class="cv-role__list">
                 <li>Owned end-to-end <strong>Citrus Ads</strong> — sponsored placements and banners; partnered with ops and Citrus's dev team; delivered solo, with impressions and engagement tracking.</li>
                 <li>Wrote tests, shipped behind <strong>feature flags</strong> and A/B experiments, and shared release rota.</li>
@@ -1112,7 +1133,10 @@
                 <h3 class="cv-role__title">Software Engineer <span class="cv-role__focus">· React Native · Firebase</span></h3>
                 <time class="cv-role__date">Mar 2021 – Apr 2023</time>
               </div>
-              <p class="cv-role__org">Train Effective · London</p>
+              <div class="cv-role__org">
+                <p>Train Effective · <a href="https://www.traineffective.com">traineffective.com</a></p>
+                <span class="cv-role__loc">Remote</span>
+              </div>
               <ul class="cv-role__list">
                 <li>Mobile app redesign — translated UI specs from pixel mockups into density-aware React Native <strong>components</strong> in Storybook, bringing amazing user experiences to life.</li>
                 <li>Integrated <strong>Amplitude</strong> and <strong>BigQuery</strong> SQL for user journeys and product analytics — events, funnels, and feature instrumentation.</li>
@@ -1122,24 +1146,29 @@
 
             <article class="cv-role">
               <div class="cv-role__head">
-                <h3 class="cv-role__title">Summer Technology Analyst <span class="cv-role__focus">· Legacy Systems · Red Hat OpenShift</span></h3>
+                <h3 class="cv-role__title">Summer Technology Analyst <span class="cv-role__focus">· Java · Red Hat OpenShift</span></h3>
                 <time class="cv-role__date">Jun 2019 – Aug 2019</time>
               </div>
-              <p class="cv-role__org">Barclays · London</p>
+              <div class="cv-role__org">
+                <p>Barclays · <a href="https://www.barclays.co.uk">barclays.co.uk</a></p>
+                <span class="cv-role__loc">Canary Wharf, London</span>
+              </div>
               <ul class="cv-role__list">
-                <li>Implemented user preferences in Java on legacy banking systems; prepared Jira/Kanban workflow and release process.</li>
+                <li>Built Java backend features for a RESTful API on Linux and Red Hat OpenShift — first exposure to real SDLC, release workflow, and production delivery.</li>
               </ul>
             </article>
 
             <article class="cv-role">
               <div class="cv-role__head">
-                <h3 class="cv-role__title">Spring Technology Analyst <span class="cv-role__focus">· Artificial Intelligence · Cloud Computing</span></h3>
+                <h3 class="cv-role__title">Spring Technology Analyst <span class="cv-role__focus">· Machine Learning</span></h3>
                 <time class="cv-role__date">Aug 2018 – Sep 2018</time>
               </div>
-              <p class="cv-role__org">Morgan Stanley · London</p>
+              <div class="cv-role__org">
+                <p>Morgan Stanley · <a href="https://www.morganstanley.com">morganstanley.com</a></p>
+                <span class="cv-role__loc">Canary Wharf, London</span>
+              </div>
               <ul class="cv-role__list">
-                <li>Designed a trade-recommendation system for B2B clients in a collaborative team setting.</li>
-                <li>Programme on cloud computing and AI — exposure to natural language processing (NLP).</li>
+                <li>Built a B2B <strong>trade-recommendation prototype</strong> on cloud computing — used <strong>Natural Language Processing</strong> to parse historical print trade ideas into ranked desk suggestions.</li>
               </ul>
             </article>
           </section>
@@ -1226,7 +1255,7 @@
 
           <div class="cv-aside-block">
             <h2 class="cv-section__title">Profile</h2>
-            <p class="cv-profile">Expert iOS engineer with 8+ years shipping mobile products across React Native and native Apple tooling. Built across Train Effective, Zapp, and App Next Day, with deep release, platform, and integration expertise beyond the JavaScript layer.</p>
+            <p class="cv-profile">Expert iOS engineer with 8+ years shipping mobile products across React Native and native Apple tooling. Built across Train Effective, Zapp, and XC Wizard, with deep release, platform, and integration expertise beyond the JavaScript layer.</p>
           </div>
 
           <div class="cv-aside-block">
@@ -1296,8 +1325,8 @@
     <div class="cv-page__inner">
 
       <header class="cv__header">
-        <h1 class="cv__name">Tobi Bey</h1>
-        <p class="cv__tagline">Expert iOS Engineer · React Native · Native Modules · Xcode · Apple Developer</p>
+        <h1 class="cv__name">Kimi Sita</h1>
+        <p class="cv__tagline">Senior React Native Engineer · Native Modules · Apple Developer · Google Developer</p>
       </header>
 
       <section class="proof-masonry" aria-label="Shipped products">
@@ -1434,7 +1463,7 @@
         <p class="proof-closer__text">I’m an iOS engineer who ships — from React Native product work at Zapp and Train Effective to architecting and building Xcode Wizard and TrakStar solo. I’m used to owning large, complex work end to end: native modules, ad orchestration across impressions and engagements, A/B testing, billing, App Store Connect, store release, and the Apple ecosystem details that make delivery work — certificates, provisioning profiles, and app signing. Open to senior or staff engineer roles, whether that means driving critical work individually, leading teams and technical direction, or owning delivery end to end.</p>
       </section>
 
-      <p class="cv-footer__copy">© 2026 Tobi Bey</p>
+      <p class="cv-footer__copy">© 2026 Kimi Sita</p>
 
     </div>
   </article>
