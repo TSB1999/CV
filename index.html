@@ -272,9 +272,14 @@
     }
 
     .cv-skill__value {
+      display: block;
       font-size: 8pt;
       color: var(--g600);
       line-height: 1.35;
+    }
+
+    .cv-skill__value + .cv-skill__value {
+      margin-top: 2px;
     }
 
     /* ─── Education ──────────────────────────────────────── */
@@ -1195,7 +1200,7 @@
             <h2 class="cv-section__title">Education</h2>
             <div class="cv-edu__row">
               <p class="cv-edu__degree">Higher Education</p>
-              <span class="cv-edu__date cv-edu__date--end">2017 – 2019</span>
+              <span class="cv-edu__date cv-edu__date--end">Oct 2017 – May 2019</span>
               <p class="cv-edu__school">University of Warwick</p>
               <p class="cv-edu__module-line">Electrical and Electronic Circuits</p>
               <p class="cv-edu__subjects">BSc Engineering <span class="cv-edu__sep">-</span> 2:1</p>
@@ -1205,7 +1210,7 @@
             </div>
             <div class="cv-edu__row cv-edu__row--alevel">
               <p class="cv-edu__degree">A-Level</p>
-              <span class="cv-edu__date cv-edu__date--end">2015 – 2017</span>
+              <span class="cv-edu__date cv-edu__date--end">Sep 2015 – Jun 2017</span>
               <p class="cv-edu__school">Sharnbrook Upper School</p>
               <p class="cv-edu__subjects">Mathematics <span class="cv-edu__sep">-</span> A <span class="cv-edu__sep">·</span> Philosophy <span class="cv-edu__sep">-</span> A <span class="cv-edu__sep">·</span> Physics <span class="cv-edu__sep">-</span> B</p>
             </div>
@@ -1233,6 +1238,7 @@
             <div class="cv-skill">
               <span class="cv-skill__label">Build Targets</span>
               <span class="cv-skill__value">iOS, Android, watchOS, visionOS, tvOS</span>
+              <span class="cv-skill__value">Raspberry Pi, Arduino</span>
             </div>
             <div class="cv-skill">
               <span class="cv-skill__label">Native Depth</span>
@@ -1244,7 +1250,7 @@
             <h2 class="cv-section__title">Core Skills</h2>
             <div class="cv-skill">
               <span class="cv-skill__label">Mobile</span>
-              <span class="cv-skill__value">React Native, TypeScript, JavaScript, Expo</span>
+              <span class="cv-skill__value">React Native, TypeScript, Expo</span>
             </div>
             <div class="cv-skill">
               <span class="cv-skill__label">Apple</span>
