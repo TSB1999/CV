@@ -277,12 +277,12 @@
     .cv-edu { margin-bottom: 6px; break-inside: avoid; }
     .cv-edu:last-child { margin-bottom: 0; }
     .cv-edu__degree { font-size: var(--text-body); font-weight: 600; color: var(--g900); }
-    .cv-edu__school { font-size: var(--text-small); color: var(--g600); }
+    .cv-edu__school { font-size: var(--text-small); color: var(--g600); margin-bottom: 2px; }
     .cv-edu__detail { font-size: 8pt; color: var(--g400); }
     .cv-edu__subjects {
-      font-size: var(--text-body);
+      font-size: var(--text-small);
       font-weight: 400;
-      color: var(--g800);
+      color: var(--g600);
       margin-bottom: 2px;
     }
     .cv-edu__meta {
@@ -296,6 +296,78 @@
       padding: 0 0.15em;
     }
 
+    .cv-edu__row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2px 14px;
+      margin-bottom: 6px;
+      align-items: stretch;
+    }
+
+    .cv-edu__col--stack {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .cv-edu__col--stack .cv-edu__subjects {
+      margin-top: auto;
+      margin-bottom: 0;
+    }
+
+    .cv-edu__module-line {
+      font-size: var(--text-small);
+      color: var(--g600);
+      line-height: 1.35;
+      margin-bottom: 0;
+    }
+
+    .cv-edu__row--alevel {
+      align-items: end;
+      margin-bottom: 0;
+    }
+
+    .cv-edu__row--alevel .cv-edu__subjects {
+      text-align: left;
+    }
+
+    .cv-edu__modules-title {
+      font-size: var(--text-body);
+      font-weight: 600;
+      color: var(--g900);
+    }
+
+    .cv-edu__modules {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .cv-edu__modules li {
+      font-size: var(--text-small);
+      color: var(--g600);
+      line-height: 1.35;
+      margin-bottom: 2px;
+    }
+
+    .cv-edu__modules li:last-child { margin-bottom: 0; }
+
+    .cv-edu__line {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: var(--space-sm);
+    }
+
+    .cv-edu__line .cv-edu__school,
+    .cv-edu__line .cv-edu__subjects {
+      margin-bottom: 0;
+    }
+
+    .cv-edu__line .cv-edu__subjects {
+      text-align: right;
+      flex-shrink: 0;
+    }
+
     /* ─── Extracurriculars ───────────────────────────────── */
     .cv-extra {
       margin-top: var(--space-md);
@@ -303,31 +375,9 @@
       border-top: 1px solid var(--g200);
     }
 
-    .cv-extra--inline {
-      margin-top: 10px;
-      padding-top: 0;
-      border-top: none;
-    }
-
-    .cv-extra--inline .cv-extra__grid {
-      grid-template-columns: repeat(2, 1fr);
-      gap: 6px 10px;
-    }
-
-    .cv-extra--continuation {
-      margin-top: var(--space-md);
-      padding-top: 0;
-      border-top: none;
-    }
-
-    .cv-extra--continuation .cv-extra__grid {
-      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) var(--col-aside);
-      gap: 8px 14px;
-    }
-
     .cv-extra__grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(2, 1fr);
       gap: 8px 14px;
       align-items: stretch;
     }
@@ -833,20 +883,11 @@
       .cv-skill__value { line-height: 1.34; }
       .cv-edu__detail { display: none; }
       .cv-extra {
-        margin-top: 4px;
-        padding-top: 3px;
+        margin-top: 8px;
+        padding-top: 6px;
         margin-bottom: 0;
         break-inside: avoid;
         page-break-inside: avoid;
-      }
-      .cv-extra--inline {
-        margin-top: 5px;
-        padding-top: 0;
-        border-top: none;
-      }
-      .cv-extra--inline .cv-extra__grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 2px 8px;
       }
       .cv-extra .cv-section__title { margin-bottom: 4px; }
       .cv-extra__grid { gap: 3px 10px; }
@@ -1100,7 +1141,7 @@
 
             <article class="cv-role">
               <div class="cv-role__head">
-                <h3 class="cv-role__title">Senior Software Engineer <span class="cv-role__focus">· Xcode · Swift · LLMs · Cloudflare Workers</span></h3>
+                <h3 class="cv-role__title">Senior Software Engineer <span class="cv-role__focus">· Xcode · Swift · MCP · Cloudflare</span></h3>
                 <time class="cv-role__date">Apr 2024 – Present</time>
               </div>
               <div class="cv-role__org">
@@ -1177,70 +1218,27 @@
 
           <section class="cv-section">
             <h2 class="cv-section__title">Education</h2>
-            <div class="cv-edu">
-              <p class="cv-edu__degree">Higher Education</p>
-              <p class="cv-edu__subjects">BSc Engineering <span class="cv-edu__sep">-</span> 2:1 <span class="cv-edu__meta">(1st Class Honours in first year)</span></p>
-              <p class="cv-edu__school">University of Warwick · 2017 – 2019</p>
-              <p class="cv-edu__detail">1st Class Honours in first year</p>
+            <div class="cv-edu__row">
+              <div class="cv-edu cv-edu__col--stack">
+                <p class="cv-edu__degree">Higher Education</p>
+                <p class="cv-edu__school">University of Warwick · 2017 – 2019</p>
+                <p class="cv-edu__subjects">BSc Engineering <span class="cv-edu__sep">-</span> 2:1</p>
+              </div>
+              <div class="cv-edu">
+                <p class="cv-edu__modules-title">Key Modules</p>
+                <ul class="cv-edu__modules">
+                  <li>Electrical and Electronic Circuits</li>
+                  <li>Computer Architecture and Systems</li>
+                  <li>Systems and Software Engineering Principles</li>
+                </ul>
+              </div>
             </div>
-            <div class="cv-edu">
-              <p class="cv-edu__degree">A-Level</p>
-              <p class="cv-edu__subjects">Mathematics <span class="cv-edu__sep">-</span> A <span class="cv-edu__sep">·</span> Philosophy <span class="cv-edu__sep">-</span> A<span class="cv-edu__meta">(S 194/200 UMS)</span> <span class="cv-edu__sep">·</span> Physics <span class="cv-edu__sep">-</span> B</p>
-              <p class="cv-edu__school">Sharnbrook Upper School · 2015 – 2017</p>
-              <p class="cv-edu__detail">Philosophy AS performance: 194/200 UMS</p>
-            </div>
-          </section>
-
-          <section class="cv-section cv-extra cv-extra--inline" aria-label="Extracurriculars">
-            <h2 class="cv-section__title">Extracurriculars</h2>
-            <div class="cv-extra__grid">
-              <article class="cv-extra__item">
-                <div class="cv-extra__head">
-                  <h3 class="cv-extra__title">Apple Developer Community</h3>
-                  <span class="cv-extra__date">2019 – Present</span>
-                </div>
-                <p class="cv-extra__desc">WWDC annually; early SwiftUI, StoreKit 2, and SIWA in production.</p>
-              </article>
-
-              <article class="cv-extra__item">
-                <div class="cv-extra__head">
-                  <h3 class="cv-extra__title">Indie App Builder</h3>
-                  <span class="cv-extra__date">Ongoing</span>
-                </div>
-                <p class="cv-extra__desc">Solo <strong>TrakStar Music</strong> — React Native DSP via Spotify ISRC → HTML5 PiP.</p>
-              </article>
-
-              <article class="cv-extra__item">
-                <div class="cv-extra__head">
-                  <h3 class="cv-extra__title">Warwick Engineering Society</h3>
-                  <span class="cv-extra__date">2017 – 2019</span>
-                </div>
-                <p class="cv-extra__desc">Hackathons, bridge-building comps, rapid prototyping nights.</p>
-              </article>
-
-              <article class="cv-extra__item">
-                <div class="cv-extra__head">
-                  <h3 class="cv-extra__title">Mobile Release Craft</h3>
-                  <span class="cv-extra__date">Ongoing</span>
-                </div>
-                <p class="cv-extra__desc">Personal focus on App Store submission, release ops, screenshots, and production polish.</p>
-              </article>
-
-              <article class="cv-extra__item">
-                <div class="cv-extra__head">
-                  <h3 class="cv-extra__title">AI Product Experiments</h3>
-                  <span class="cv-extra__date">Ongoing</span>
-                </div>
-                <p class="cv-extra__desc">Prototyping automation and AI-driven product ideas beyond day-job app work.</p>
-              </article>
-
-              <article class="cv-extra__item">
-                <div class="cv-extra__head">
-                  <h3 class="cv-extra__title">Open Source Exploration</h3>
-                  <span class="cv-extra__date">Ongoing</span>
-                </div>
-                <p class="cv-extra__desc">Testing new tooling, SDKs, and mobile workflows to stay sharp across the Apple ecosystem.</p>
-              </article>
+            <div class="cv-edu__row cv-edu__row--alevel">
+              <div class="cv-edu">
+                <p class="cv-edu__degree">A-Level</p>
+                <p class="cv-edu__school">Sharnbrook Upper School · 2015 – 2017</p>
+              </div>
+              <p class="cv-edu__subjects">Mathematics <span class="cv-edu__sep">-</span> A <span class="cv-edu__sep">·</span> Philosophy <span class="cv-edu__sep">-</span> A <span class="cv-edu__sep">·</span> Physics <span class="cv-edu__sep">-</span> B</p>
             </div>
           </section>
         </main>
@@ -1249,15 +1247,15 @@
           <div class="cv-aside-block">
             <h2 class="cv-section__title">Contact</h2>
             <p class="cv-contact__item">London, United Kingdom</p>
-            <p class="cv-contact__item"><a href="tel:+447777623068">+44 7777 623 068</a></p>
-            <p class="cv-contact__item"><a href="mailto:tshbey@hotmail.com">tshbey@hotmail.com</a></p>
+            <p class="cv-contact__item"><a href="tel:+447494214773">+44 7494 214 773</a></p>
+            <p class="cv-contact__item"><a href="mailto:hakimi.sita@proton.me">hakimi.sita@proton.me</a></p>
             <p class="cv-contact__item"><a href="tobi-bey-cv.pdf">Download PDF</a></p>
             <p class="cv-contact__item"><a href="https://xcwizard.com">xcwizard.com</a></p>
           </div>
 
           <div class="cv-aside-block">
             <h2 class="cv-section__title">Profile</h2>
-            <p class="cv-profile">Expert iOS engineer with 8+ years shipping mobile products across React Native and native Apple tooling. Built across Train Effective, Zapp, and XC Wizard, with deep release, platform, and integration expertise beyond the JavaScript layer.</p>
+            <p class="cv-profile">Advanced iOS engineer with 8+ years shipping mobile products across React Native and native Apple tooling. Built across Train Effective, Zapp, and XC Wizard, with deep release, platform, and integration expertise beyond the JavaScript layer.</p>
           </div>
 
           <div class="cv-aside-block">
@@ -1296,29 +1294,45 @@
             </div>
           </div>
 
-          <div class="cv-aside-block">
-            <h2 class="cv-section__title">Highlights</h2>
-            <div class="cv-skill">
-              <span class="cv-skill__value">• Apple ecosystem expert — SwiftUI, StoreKit 2, SIWA, APNs, ASC</span>
-            </div>
-            <div class="cv-skill">
-              <span class="cv-skill__value">• 1,500+ advanced Xcode projects built through Xcode Wizard</span>
-            </div>
-            <div class="cv-skill">
-              <span class="cv-skill__value">• 3 React Native apps live on the App Store</span>
-            </div>
-            <div class="cv-skill">
-              <span class="cv-skill__value">• Component library powering a full app redesign</span>
-            </div>
-            <div class="cv-skill">
-              <span class="cv-skill__value">• Native modules and App Store / Play Store release ownership</span>
-            </div>
-            <div class="cv-skill">
-              <span class="cv-skill__value">• Cloud ops: DNS, Cloudflare, GCP</span>
-            </div>
-          </div>
         </aside>
       </div>
+
+      <section class="cv-section cv-extra" aria-label="Extracurriculars">
+        <h2 class="cv-section__title">Extracurriculars</h2>
+        <div class="cv-extra__grid">
+          <article class="cv-extra__item">
+            <div class="cv-extra__head">
+              <h3 class="cv-extra__title">Apple Developer Community</h3>
+              <span class="cv-extra__date">2019 – Present</span>
+            </div>
+            <p class="cv-extra__desc">WWDC annually; early SwiftUI, StoreKit 2, and SIWA in production.</p>
+          </article>
+
+          <article class="cv-extra__item">
+            <div class="cv-extra__head">
+              <h3 class="cv-extra__title">Indie App Builder</h3>
+              <span class="cv-extra__date">Ongoing</span>
+            </div>
+            <p class="cv-extra__desc">Solo <strong>TrakStar Music</strong> — React Native DSP via Spotify ISRC → HTML5 PiP.</p>
+          </article>
+
+          <article class="cv-extra__item">
+            <div class="cv-extra__head">
+              <h3 class="cv-extra__title">Warwick Engineering Society</h3>
+              <span class="cv-extra__date">2017 – 2019</span>
+            </div>
+            <p class="cv-extra__desc">Hackathons, bridge-building comps, rapid prototyping nights.</p>
+          </article>
+
+          <article class="cv-extra__item">
+            <div class="cv-extra__head">
+              <h3 class="cv-extra__title">Open Source Exploration</h3>
+              <span class="cv-extra__date">Ongoing</span>
+            </div>
+            <p class="cv-extra__desc">Testing new tooling, SDKs, and mobile workflows to stay sharp across the Apple ecosystem.</p>
+          </article>
+        </div>
+      </section>
     </div>
   </article>
 
