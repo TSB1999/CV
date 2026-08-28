@@ -256,6 +256,10 @@
       line-height: var(--leading-body);
     }
 
+    .cv-profile + .cv-profile {
+      margin-top: 6px;
+    }
+
     .cv-skill { margin-bottom: 6px; }
     .cv-skill:last-child { margin-bottom: 0; }
 
@@ -276,7 +280,19 @@
     /* ─── Education ──────────────────────────────────────── */
     .cv-edu { margin-bottom: 6px; break-inside: avoid; }
     .cv-edu:last-child { margin-bottom: 0; }
-    .cv-edu__degree { font-size: var(--text-body); font-weight: 600; color: var(--g900); }
+    .cv-edu__degree { font-size: var(--text-body); font-weight: 600; color: var(--g900); margin-bottom: 0; }
+
+    .cv-edu__date {
+      font-size: 8pt;
+      color: var(--g400);
+      white-space: nowrap;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .cv-edu__date--end {
+      text-align: right;
+      justify-self: end;
+    }
     .cv-edu__school { font-size: var(--text-small); color: var(--g600); margin-bottom: 2px; }
     .cv-edu__detail { font-size: 8pt; color: var(--g400); }
     .cv-edu__subjects {
@@ -299,19 +315,18 @@
     .cv-edu__row {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 2px 14px;
+      column-gap: 14px;
+      row-gap: 2px;
       margin-bottom: 6px;
-      align-items: stretch;
+      align-items: baseline;
     }
 
-    .cv-edu__col--stack {
-      display: flex;
-      flex-direction: column;
-    }
-
-    .cv-edu__col--stack .cv-edu__subjects {
-      margin-top: auto;
+    .cv-edu__row--alevel {
       margin-bottom: 0;
+    }
+
+    .cv-edu__spacer {
+      display: block;
     }
 
     .cv-edu__module-line {
@@ -321,51 +336,9 @@
       margin-bottom: 0;
     }
 
-    .cv-edu__row--alevel {
-      align-items: end;
+    .cv-edu__row .cv-edu__subjects,
+    .cv-edu__row .cv-edu__school {
       margin-bottom: 0;
-    }
-
-    .cv-edu__row--alevel .cv-edu__subjects {
-      text-align: left;
-    }
-
-    .cv-edu__modules-title {
-      font-size: var(--text-body);
-      font-weight: 600;
-      color: var(--g900);
-    }
-
-    .cv-edu__modules {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-    }
-
-    .cv-edu__modules li {
-      font-size: var(--text-small);
-      color: var(--g600);
-      line-height: 1.35;
-      margin-bottom: 2px;
-    }
-
-    .cv-edu__modules li:last-child { margin-bottom: 0; }
-
-    .cv-edu__line {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      gap: var(--space-sm);
-    }
-
-    .cv-edu__line .cv-edu__school,
-    .cv-edu__line .cv-edu__subjects {
-      margin-bottom: 0;
-    }
-
-    .cv-edu__line .cv-edu__subjects {
-      text-align: right;
-      flex-shrink: 0;
     }
 
     /* ─── Extracurriculars ───────────────────────────────── */
@@ -1198,6 +1171,7 @@
               </div>
               <ul class="cv-role__list">
                 <li>Built Java backend features for a RESTful API on Linux and Red Hat OpenShift — first exposure to real SDLC, release workflow, and production delivery.</li>
+                <li>Collaborated in an agile squad — Jira/Kanban, peer review, and release prep on a regulated banking platform.</li>
               </ul>
             </article>
 
@@ -1212,6 +1186,7 @@
               </div>
               <ul class="cv-role__list">
                 <li>Built a B2B <strong>trade-recommendation prototype</strong> on cloud computing — used <strong>Natural Language Processing</strong> to parse historical print trade ideas into ranked desk suggestions.</li>
+                <li>Designed the system for B2B clients in a collaborative team setting on a cloud computing and AI programme.</li>
               </ul>
             </article>
           </section>
@@ -1219,25 +1194,19 @@
           <section class="cv-section">
             <h2 class="cv-section__title">Education</h2>
             <div class="cv-edu__row">
-              <div class="cv-edu cv-edu__col--stack">
-                <p class="cv-edu__degree">Higher Education</p>
-                <p class="cv-edu__school">University of Warwick · 2017 – 2019</p>
-                <p class="cv-edu__subjects">BSc Engineering <span class="cv-edu__sep">-</span> 2:1</p>
-              </div>
-              <div class="cv-edu">
-                <p class="cv-edu__modules-title">Key Modules</p>
-                <ul class="cv-edu__modules">
-                  <li>Electrical and Electronic Circuits</li>
-                  <li>Computer Architecture and Systems</li>
-                  <li>Systems and Software Engineering Principles</li>
-                </ul>
-              </div>
+              <p class="cv-edu__degree">Higher Education</p>
+              <span class="cv-edu__date cv-edu__date--end">2017 – 2019</span>
+              <p class="cv-edu__school">University of Warwick</p>
+              <p class="cv-edu__module-line">Electrical and Electronic Circuits</p>
+              <p class="cv-edu__subjects">BSc Engineering <span class="cv-edu__sep">-</span> 2:1</p>
+              <p class="cv-edu__module-line">Computer Architecture and Systems</p>
+              <span class="cv-edu__spacer" aria-hidden="true"></span>
+              <p class="cv-edu__module-line">Systems and Software Engineering Principles</p>
             </div>
             <div class="cv-edu__row cv-edu__row--alevel">
-              <div class="cv-edu">
-                <p class="cv-edu__degree">A-Level</p>
-                <p class="cv-edu__school">Sharnbrook Upper School · 2015 – 2017</p>
-              </div>
+              <p class="cv-edu__degree">A-Level</p>
+              <span class="cv-edu__date cv-edu__date--end">2015 – 2017</span>
+              <p class="cv-edu__school">Sharnbrook Upper School</p>
               <p class="cv-edu__subjects">Mathematics <span class="cv-edu__sep">-</span> A <span class="cv-edu__sep">·</span> Philosophy <span class="cv-edu__sep">-</span> A <span class="cv-edu__sep">·</span> Physics <span class="cv-edu__sep">-</span> B</p>
             </div>
           </section>
@@ -1256,17 +1225,18 @@
           <div class="cv-aside-block">
             <h2 class="cv-section__title">Profile</h2>
             <p class="cv-profile">Advanced iOS engineer with 8+ years shipping mobile products across React Native and native Apple tooling. Built across Train Effective, Zapp, and XC Wizard, with deep release, platform, and integration expertise beyond the JavaScript layer.</p>
+            <p class="cv-profile">Extended that foundation into agentic iOS delivery — MCP, LLM workflows, and solo product ownership at Xcode Wizard. Open to senior or staff roles in collaborative product teams.</p>
           </div>
 
           <div class="cv-aside-block">
             <h2 class="cv-section__title">Platforms</h2>
             <div class="cv-skill">
               <span class="cv-skill__label">Build Targets</span>
-              <span class="cv-skill__value">iOS, Android, watchOS, visionOS</span>
+              <span class="cv-skill__value">iOS, Android, watchOS, visionOS, tvOS</span>
             </div>
             <div class="cv-skill">
               <span class="cv-skill__label">Native Depth</span>
-              <span class="cv-skill__value">Swift native modules, App Clips, Widgets, APNs, Sign in with Apple, StoreKit, certificates, code signing</span>
+              <span class="cv-skill__value">Swift native modules, App Clips, Widgets, APNs, Sign in with Apple, StoreKit, RealityKit, SpriteKit, GameplayKit, certificates, code signing</span>
             </div>
           </div>
 
@@ -1318,10 +1288,10 @@
 
           <article class="cv-extra__item">
             <div class="cv-extra__head">
-              <h3 class="cv-extra__title">Warwick Engineering Society</h3>
-              <span class="cv-extra__date">2017 – 2019</span>
+              <h3 class="cv-extra__title">Published Author</h3>
+              <span class="cv-extra__date">Aug 2026</span>
             </div>
-            <p class="cv-extra__desc">Hackathons, bridge-building comps, rapid prototyping nights.</p>
+            <p class="cv-extra__desc">Editor of <strong><a href="https://www.amazon.com/dp/B0HGCN3H3N">1914 History of Lagos</a></strong> — restored J. B. Losi’s 1914 chronicle and bound it with Senator Shitta-Bey’s 1979 case for Lagos State.</p>
           </article>
 
           <article class="cv-extra__item">
