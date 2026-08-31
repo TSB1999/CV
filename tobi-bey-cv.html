@@ -20,6 +20,7 @@
       --g000: #ffffff;
 
       --accent: var(--g800);
+      --link: #1d4ed8;
 
       --font-display: "Source Serif 4", Georgia, "Times New Roman", serif;
       --font-body: "Source Sans 3", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
@@ -282,6 +283,25 @@
       margin-top: 2px;
     }
 
+    .cv-highlights {
+      list-style: disc;
+      padding-left: 11px;
+      margin: 0;
+    }
+
+    .cv-highlights li {
+      font-size: 7pt;
+      color: var(--g600);
+      line-height: 1.55;
+      white-space: nowrap;
+      margin-bottom: 1px;
+    }
+
+    .cv-highlights li::marker {
+      color: var(--g400);
+      font-size: 6pt;
+    }
+
     /* ─── Education ──────────────────────────────────────── */
     .cv-edu { margin-bottom: 6px; break-inside: avoid; }
     .cv-edu:last-child { margin-bottom: 0; }
@@ -339,6 +359,7 @@
       color: var(--g600);
       line-height: 1.35;
       margin-bottom: 0;
+      text-align: right;
     }
 
     .cv-edu__row .cv-edu__subjects,
@@ -394,6 +415,17 @@
     .cv-extra__desc strong {
       font-weight: 600;
       color: var(--g900);
+    }
+
+    .cv-extra__title a,
+    .cv-extra__desc a {
+      color: var(--link);
+      text-decoration: underline;
+      text-underline-offset: 1px;
+    }
+
+    .cv-extra__desc strong a {
+      color: var(--link);
     }
 
     /* ══════════════════════════════════════════════════════
@@ -1270,6 +1302,16 @@
             </div>
           </div>
 
+          <div class="cv-aside-block">
+            <h2 class="cv-section__title">Highlights</h2>
+            <ul class="cv-highlights">
+              <li>1,500+ iOS apps shipped</li>
+              <li>8+ years mobile delivery</li>
+              <li>Solo owner — Xcode Wizard</li>
+              <li>MCP &amp; agentic coding</li>
+            </ul>
+          </div>
+
         </aside>
       </div>
 
@@ -1281,7 +1323,7 @@
               <h3 class="cv-extra__title">Apple Developer Community</h3>
               <span class="cv-extra__date">2019 – Present</span>
             </div>
-            <p class="cv-extra__desc">WWDC annually; early SwiftUI, StoreKit 2, and SIWA in production.</p>
+            <p class="cv-extra__desc"><a href="https://developer.apple.com/wwdc/">WWDC</a> annually; early SwiftUI, StoreKit 2, and SIWA in production.</p>
           </article>
 
           <article class="cv-extra__item">
@@ -1289,7 +1331,7 @@
               <h3 class="cv-extra__title">Indie App Builder</h3>
               <span class="cv-extra__date">Ongoing</span>
             </div>
-            <p class="cv-extra__desc">Solo <strong>TrakStar Music</strong> — React Native DSP via Spotify ISRC → HTML5 PiP.</p>
+            <p class="cv-extra__desc">Solo <strong><a href="https://drive.google.com/file/d/1Zxq6hOuU8FnzSexbLM2VKcS9zozZ-Zqx/view?usp=sharing">TrakStar Music</a></strong> — React Native DSP via Spotify ISRC → HTML5 PiP.</p>
           </article>
 
           <article class="cv-extra__item">
@@ -1302,7 +1344,7 @@
 
           <article class="cv-extra__item">
             <div class="cv-extra__head">
-              <h3 class="cv-extra__title">Open Source Exploration</h3>
+              <h3 class="cv-extra__title"><a href="https://github.com/orgs/TrakStar-Music/repositories?q=visibility%3Apublic+archived%3Afalse">Open Source Exploration</a></h3>
               <span class="cv-extra__date">Ongoing</span>
             </div>
             <p class="cv-extra__desc">Testing new tooling, SDKs, and mobile workflows to stay sharp across the Apple ecosystem.</p>
